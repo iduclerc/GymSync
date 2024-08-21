@@ -3,7 +3,7 @@
    Projeto-FDS
 </h1>
 <h1 style="display: flex; align-items: center;">
-  <img title="readme" src="img1.webp.jpg" width="290" height="290" style="margin-right: 0px;">
+  <img title="readme" src="img1.webp.jpg" width="290" height="290">
   <img src="img2.jpg" width="270" height="290">
 <img src="img3.webp" width="270" height="290">
 </h1>
