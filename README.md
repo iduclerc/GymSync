@@ -3,9 +3,9 @@
    Projeto-FDS
 </h1>
 <h1>
-  <img title="readme" src="img1.webp.jpg" width="240" height="290" style="display: inline-block;">
-  <img src="img2.jpg" width="240" height="290" style="display: inline-block;">
-  <img src="img3.webp" width="240" height="290" style="display: inline-block;">
+  <img title="readme" src="img1.webp.jpg" width="275" height="290" style="display: inline-block;">
+  <img src="img2.jpg" width="275" height="290" style="display: inline-block;">
+  <img src="img3.webp" width="275" height="290" style="display: inline-block;">
 </h1>
 
 
