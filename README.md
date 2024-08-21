@@ -2,11 +2,12 @@
  <h1 align="center">
    Projeto-FDS
 </h1>
-<h1 style="display: flex; align-items: center;">
-  <img title="readme" src="img1.webp.jpg" width="290" height="290">
-  <img src="img2.jpg" width="270" height="290">
-<img src="img3.webp" width="270" height="290">
+<h1>
+  <img title="readme" src="img1.webp.jpg" width="240" height="290" style="display: inline-block;">
+  <img src="img2.jpg" width="240" height="290" style="display: inline-block;">
+  <img src="img3.webp" width="240" height="290" style="display: inline-block;">
 </h1>
+
 
 
 <br>
