@@ -81,11 +81,33 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <br><br>
 <details><br>
 <summary>Colaboradores</summary>
-Antonio Crisanto - Email: tom.filho2006@gmail.com<br>
-Artur Dowsley - Email: arturbdowsley@gmail.com<br>
-Israel Duclerc - Email:...<br>
-Lucas Calabria - Email: lvcalabria@gmail.com<br>
-Victor Paes - Email: vplpc@cesar.school<br>
+<table>
+  <tr>
+    <td>Antonio Crisanto</td>
+    <td> Email: tom.filho2006@gmail.com</td>
+  </tr>
+  <tr>
+    <td>Artur Dowsley</td>
+    <td> Email: arturbdowsley@gmail.com</td>
+  </tr>
+  <tr>
+    <td>Israel Duclerc</td>
+    <td> Email: imdn@cesar.school</td>
+  </tr>
+  <tr>
+    <td>Lucas Calabria</td>
+    <td> Email: lvcalabria@gmail.com</td>
+  </tr>
+  <tr>
+    <td>Samuel Abreu</td>
+    <td> Email: sam.abreugouveia@gmail.com</td>
+  </tr>
+  <tr>
+    <td>Victor Paes</td>
+    <td> Email: vplpc@cesar.school</td>
+  </tr>
+</table>
+
 </details>
 
 <details><br>
