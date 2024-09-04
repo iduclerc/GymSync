@@ -114,5 +114,15 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <summary>Links</summary>
 https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1
 </details>
+<details>
+<summary>Entrega 1</summary>
+<details>
+<summary>Backlog</summary>
+<img src="img/backlog.png.jpg">
+</details>
+
+</details>
 <br>
+
+
 <h1>🔧Em construção...🔧</h1>
