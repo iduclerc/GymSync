@@ -124,5 +124,8 @@ https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1
 </details>
 <br>
 
-
+<h1>Print do quadro e backlog (JIRA):<h1>
+<br>
+<img src="">
+<br>
 <h1>🔧Em construção...🔧</h1>
