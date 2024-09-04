@@ -118,15 +118,13 @@ https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1
 <summary>Entrega 1</summary>
 <details>
 <summary>Backlog</summary>
-<img src="img/backlog.png.jpg">
-</details>
-
-</details>
-<br>
-
 <h1>Print do quadro e backlog (JIRA):<h1>
 <br>
 <img src="img/imagembacklog.jpg">
 <img src="img/imagemquadro.jpg">
+</details>
+
+</details>
+<br>
 <br>
 <h1>🔧Em construção...🔧</h1>
