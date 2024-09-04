@@ -126,6 +126,7 @@ https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1
 
 <h1>Print do quadro e backlog (JIRA):<h1>
 <br>
-<img src="">
+<img src="img/imagembacklog.jpg">
+<img src="img/imagemquadro.jpg">
 <br>
 <h1>🔧Em construção...🔧</h1>
