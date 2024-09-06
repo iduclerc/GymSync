@@ -4,7 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto-FDS</title>
-    <link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.content {
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
+.img-row {
+    display: flex;
+    justify-content: center;
+}
+.img-row img {
+    margin: 0 10px;
+}
+</style>
+
+
+
+
+
 </head>
 <body>
 
