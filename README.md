@@ -5,58 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto-FDS</title>
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-}
-.navbar {
-    overflow: hidden;
-    background-color: #333;
-}
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-.content {
-    padding: 20px;
-}
-h1 {
-    text-align: center;
-}
-.img-row {
-    display: flex;
-    justify-content: center;
-}
-.img-row img {
-    margin: 0 10px;
-}
-</style>
-
-
-
-
-
 </head>
 <body>
-
-<div class="navbar">
-    <a href="#entrega1">Entrega 1</a>
-    <a href="#entrega2">Entrega 2</a>
-    <a href="#entrega3">Entrega 3</a>
-    <a href="#entrega4">Entrega 4</a>
-    <a href="#linguagens">Linguagens</a>
-    <a href="#colaboradores">Colaboradores</a>
-</div>
-
-<br><br>
+<br>
 
 <h1 align="center">Projeto-FDS</h1>
 
@@ -65,6 +16,8 @@ h1 {
     <img src="img/img2.jpg" width="270" height="290" style="display: inline-block;">
     <img src="img/img3.webp" width="270" height="290" style="display: inline-block;">
 </h1>
+
+[Entrega 1](#entrega1) &nbsp;|&nbsp; [Entrega 2](#entrega2) &nbsp;|&nbsp; [Entrega 3](#entrega3) &nbsp;|&nbsp; [Entrega 4](#entrega4) &nbsp;|&nbsp; [Linguagens](#linguagens) &nbsp;|&nbsp; [Colaboradores](#colaboradores)
 
 <br>
 
