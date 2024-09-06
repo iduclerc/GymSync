@@ -1,17 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto-FDS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
- <h1 align="center">
-   Projeto-FDS
+
+<div class="navbar">
+    <a href="#entrega1">Entrega 1</a> <a href="#entrega2">Entrega 2</a><a href="#entrega3">Entrega 3</a><a href="#entrega4">Entrega 4</a><a href="#linguagens">Linguagens</a><a href="#colaboradores">Colaboradores</a>
+</div>
+<br><br>
+<h1 align="center">
+    Projeto-FDS
 </h1>
-<h1>
-  <img title="readme" src="img/img1.webp.jpg" width="270" height="290" style="display: inline-block;">
-  <img src="img/img2.jpg" width="270" height="290" style="display: inline-block;">
-  <img src="img/img3.webp" width="270" height="290" style="display: inline-block;">
+<h1 class="img-row">
+    <img title="readme" src="img/img1.webp.jpg" width="270" height="290" style="display: inline-block;">
+    <img src="img/img2.jpg" width="270" height="290" style="display: inline-block;">
+    <img src="img/img3.webp" width="270" height="290" style="display: inline-block;">
 </h1>
-
-
 
 <br>
-
 
 ## 💻 Projeto
 
@@ -42,53 +53,40 @@
 
 <h4>Esse tipo de aplicativo não só facilita a gestão e execução dos treinos, como também promove uma conexão entre treinadores e usuários, proporcionando uma experiência mais personalizada e eficiente no alcance de objetivos de fitness.</h4>
 
-
-
-
 <br>
 
-## 🚀 Linguagens
+## 🚀 Linguagens <a id='linguagens'></a>
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ✔️Python
 
-✔️JavaScrpit
+✔️JavaScript
 
 ✔️HTML
 
 ✔️CSS
 
-✔️...
-
-✔️...
-
-✔️...
-
-✔️...
-
-✔️...
-
 <br>
 
 ## ⚙ Configuração
 
-
 > ...
 
-
 >...
+
 <br><br>
+
 <details><br>
-<summary>Colaboradores</summary>
+<summary id='colaboradores'>Colaboradores</summary>
 <table>
   <tr>
     <td>Antonio Crisanto</td>
-    <td> Email: tom.filho2006@gmail.com</td>
+    <td> Email: actf@cesar.school</td>
   </tr>
   <tr>
     <td>Artur Dowsley</td>
-    <td> Email: arturbdowsley@gmail.com</td>
+    <td> Email: abd2@cesar.School</td>
   </tr>
   <tr>
     <td>Israel Duclerc</td>
@@ -96,35 +94,57 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   </tr>
   <tr>
     <td>Lucas Calabria</td>
-    <td> Email: lvcalabria@gmail.com</td>
+    <td> Email: Lvc@cesar.school</td>
   </tr>
   <tr>
     <td>Samuel Abreu</td>
-    <td> Email: sam.abreugouveia@gmail.com</td>
+    <td> Email: slag@cesar.school</td>
   </tr>
   <tr>
     <td>Victor Paes</td>
     <td> Email: vplpc@cesar.school</td>
   </tr>
 </table>
-
 </details>
 
 <details><br>
 <summary>Links</summary>
 https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1
 </details>
-<details>
+
+<!-- Entrega 1 -->
+<details id="entrega1">
 <summary>Entrega 1</summary>
 <details>
 <summary>Backlog</summary>
-<h1>Print do quadro e backlog (JIRA):<h1>
+<h1>Print do quadro e backlog (JIRA):</h1>
 <br>
-<img src="img/imagembacklog.jpg">
-<img src="img/imagemquadro.jpg">
+<img src="img/img_backlog.jpeg">
+<img src="img/img_jira.jpeg">
+</details>
 </details>
 
+<details id="entrega2">
+<summary>Entrega 2</summary>
+<h1>entrega 2...</h1>
 </details>
-<br>
-<br>
+</details>
+<details id="entrega3">
+<summary>Entrega 3</summary>
+<h1>entrega 3...</h1>
+</details>
+</details>
+<details id="entrega4">
+<summary>Entrega 4</summary>
+<h1>entrega 4...</h1>
+</details>
+</details>
+
+
+
+<br><br>
+
 <h1>🔧Em construção...🔧</h1>
+
+</body>
+</html>
