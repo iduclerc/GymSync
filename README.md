@@ -82,7 +82,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 <details>
     <summary>Links</summary>
-    <p>https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1</p>
+    <p>jira: https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1</p>
+    <p>youtube: https://youtu.be/eAx2HIiVcNo</p>
 </details>
 
 <!-- Entrega 1 -->
