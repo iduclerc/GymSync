@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app_gymsync import views # possivel erro de algo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('criar-treino/', views.criar_treino, name='criar_treino'),
 ]
