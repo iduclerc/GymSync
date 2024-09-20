@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from .models import Treino
 
-def criar_treino(request):
+def forum(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
         numero_series = request.POST.get('numero_series')
@@ -15,10 +15,12 @@ def criar_treino(request):
         treino.save()
 
         # Redirecionar para uma página de sucesso (ou outra página que você preferir)
-        return redirect('lista_treinos')
+        return redirect('lista_treinos.html')
 
-    return render(request, 'criar_treino.html')
+    return render(request, 'forum.html')
+
 def lista_treinos(request):
+
     treinos = Treino.objects.all()
     return render(request, 'lista_treinos.html', {'treinos': treinos})
 
