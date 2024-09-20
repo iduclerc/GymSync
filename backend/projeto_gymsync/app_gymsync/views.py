@@ -13,11 +13,14 @@ def forum(request):
         # Criar o objeto Treino e salvar no banco de dados
         treino = Treino(nome=nome, numero_series=numero_series, agrupamento_muscular=agrupamento_muscular)
         treino.save()
-
+                                                                                                                    
         # Redirecionar para uma página de sucesso (ou outra página que você preferir)
         return redirect('lista_treinos.html')
 
     return render(request, 'forum.html')
+
+def criar_treino(request):
+    pass
 
 def lista_treinos(request):
 

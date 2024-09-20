@@ -21,5 +21,6 @@ from app_gymsync import views # possivel erro de algo
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('forum/', views.forum, name='forum'),
+    #path('forum/criar_treino',views.criar_treino,name='criar_treino'),
     path('forum/lista_treinos.html/',views.lista_treinos,name='lista_treino'),
 ]
