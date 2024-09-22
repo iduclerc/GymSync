@@ -14,7 +14,7 @@
         {% for treino in treinos %}
         <li>
             <strong>{{ treino.nome }}</strong> <!-- Exibe o nome do treino -->
-            <form action="{% url 'excluir_treino' treino.id %}" method="POST" style="display:inline;">
+            <form action="{% url 'excluir_treino'  %}" method="POST">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Excluir Treino</button> <!-- Botão para excluir o treino -->
             </form>

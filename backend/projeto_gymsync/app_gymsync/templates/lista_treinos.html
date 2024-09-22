@@ -12,8 +12,8 @@
         <!-- Loop através da lista de treinos enviada pela view -->
         {% for treino in treinos %}
         <li>
-            {{ treino.nome }}  <!-- Exibe o nome do treino -->
-            <form action="{% url 'excluir_treino' %}" method="POST" style="display:inline;">
+            {{ treino.nome }} (ID: {{ treino.id }})  <!-- Exibe o nome do treino -->
+            <form action="{% url 'excluir_treino' treino.id %}" method="POST" style="display:inline;">
                 {% csrf_token %}
                 <button type="submit" name="excluir_treino">Excluir treino</button>  <!-- Botão para excluir o treino -->
         </li>

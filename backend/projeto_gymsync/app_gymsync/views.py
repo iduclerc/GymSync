@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Treino
 from .forms import ExercicioForm
+from django.contrib import messages
 
 
 def forum(request):
@@ -22,12 +23,12 @@ def criar_treino(request):
         treino.save()
                                                                                                                     
         # Redirecionar para uma página de sucesso (ou outra página que você preferir)
-        return redirect('lista_treino.html') #tem que retornar a pagina para adicionar os exercios
+        return redirect('forum') #tem que retornar a pagina para adicionar os exercios
 
     return render(request, 'criar_treino.html')
 
-def add_exercicio(request, treino_id):
-    treino = get_object_or_404(Treino, id=treino_id)
+def add_exercicio(request,treino_id):
+    treino = get_object_or_404(Treino,id=treino_id)
     
     if request.method == 'POST':
         form = ExercicioForm(request.POST)
@@ -41,12 +42,14 @@ def add_exercicio(request, treino_id):
 
     return render(request, 'adicionar_exercicio.html', {'form': form, 'treino': treino})
 
-def excluir_treino(request, treino_id):
+def excluir_treino(request,treino_id):
+    
     treino = get_object_or_404(Treino, id=treino_id)
     
     if request.method == 'POST':
         treino.delete()  # Exclui o treino
-        return redirect('forum.html')  # Redireciona para a página com a lista de treinos
+        messages.success(request, f'Treino "{treino.nome}" excluído com sucesso!')
+        return redirect('forum')  # Redireciona para a página com a lista de treinos
     
     return render(request, 'confirmar_exclusao.html', {'treino': treino})
 
