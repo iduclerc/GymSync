@@ -20,7 +20,7 @@ from app_gymsync import views # possivel erro de algo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('forum/', views.forum, name='forum'),
+    path('', views.forum, name='forum'),
     path('criar_treino/',views.criar_treino,name='criar_treino'),
     #path('forum/criar_treino/',views.criar_treino,name='lista_treino'),
     #path('forum/criar_treino.html/add_exercicio.html',views.add_exercicio,name='add_exercicio'),
