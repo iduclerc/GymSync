@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Treino
 from .forms import ExercicioForm
 from django.contrib import messages
+from .models import Usuario
 
 
 def forum(request):
@@ -58,4 +59,24 @@ def lista_treinos(request):
     treinos = Treino.objects.all()
     return render(request, 'lista_treinos.html', {'treinos': treinos})
 
+
+def cadastro(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        senha = request.POST['senha']
+
+        # Verifica se o email já existe
+        if Usuario.objects.filter(email=email).exists():
+            return render(request, 'cadastro.html', {'error': 'Email já está em uso.'})
+
+        # Cria o novo usuário
+        Usuario.objects.create(
+            email=email,
+            senha=senha  # A senha será automaticamente hasheada no modelo
+        )
+
+        # Redireciona para a página inicial ou qualquer outra após o cadastro
+        return redirect('forum')
+
+    return render(request, 'cadastro.html')
 

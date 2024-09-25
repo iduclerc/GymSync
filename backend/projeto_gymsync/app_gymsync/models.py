@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
+from django.contrib.auth.hashers import make_password
 
 class Treino(models.Model):
     nome = models.CharField(max_length=100)  # Nome do treino
@@ -20,4 +21,17 @@ class Exercicios(models.Model):
 
     def __str__(self):
         return f"{self.nome} - {self.repeticoes} reps"
+
+
+class Usuario(models.Model):
+    email = models.EmailField(unique=True)
+    senha = models.CharField(max_length=128)  # Para armazenar a senha hash
+
+    def save(self, *args, **kwargs):
+        # Gera o hash da senha antes de salvar
+        self.senha = make_password(self.senha)
+        super(Usuario, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.email
 
