@@ -4,27 +4,29 @@
 <head>
     <meta charset="utf-8">
     <!-- DESCRIÇÃO DO SITE -->
-    <meta name="description" content="GymSync: um template HTML para facilitar os seus objetivos Fitness">
-    <meta name="keyword" content="HTML, CSS, BOOTSTRAP, JAVACRIPT">
-    <meta name="author" centent="GymSync">
-    <!-- VISUALIZAÇÃO OTIMIZADA PARA DISPOSITIVOS MÓVEIS -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale =1.0">
-    <title>GymSync</title>
-    <!-- FONTES DO GOOGLE -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="" sizes="32X32">
+        <meta name="description" content="GymSync: um template HTML para facilitar os seus objetivos Fitness">
+        <meta name="keyword" content="HTML, CSS, BOOTSTRAP, JAVACRIPT">
+        <meta name="author" centent="GymSync">
+        <!-- VISUALIZAÇÃO OTIMIZADA PARA DISPOSITIVOS MÓVEIS -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale =1.0">
+        <title>GymSync</title>
+        <!-- FONTES DO GOOGLE -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="" sizes="32X32">
 
-    <!-- CSS GLOBAL -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" type="text/css" href="css/header-footer.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+        <!-- CSS GLOBAL -->
+        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/header-footer.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/animate.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/index.css' %}">
 
-</head>
+
+
+    </head>
 
 <body>
     <!-- INÍCIO DA BARRA DE NAVEGAÇÃO -->
@@ -51,7 +53,7 @@
                                 <li><a href="{% url 'criar_treino' %}" class="btn btn-primary">Acessar treino</a></li>
                                 <li><a href="{% url 'lista_treinos' %}" class="btn btn-primary">Excluir treino</a></li>
                                 <li><a href="./group-classes.html">Alterar treinos</a></li>
-                                <li><a href="{% url 'add_exercicio' %}" class="btn btn-primary">Adicionat exercicios</a></li>
+                                <li><a href="{% url 'add_exercicio' %}" class="btn btn-primary">Adicionar exercicios</a></li>
                             </ul>
                         </li>                   
                         <!-- NOSSA EQUIPE -->
@@ -114,6 +116,7 @@
                 Estar em forma é essencial para uma saúde forte,<br>e nunca é tarde para voltar à ativa. O GymSync <br>
                 torna fácil e prático cuidar do seu condicionamento físico.
             </p>
+        
         </section>
         <section class="cards">
             <div class="row wrapper card_s animated  bounceIn">
@@ -284,4 +287,5 @@
 				<script type="text/javascript" src="js/wow.js"></script>
 			</main>
 		</body>
-		</html>
+		</html> 
+        <!--aaaaaaaaaaaaaaaaaa-->
