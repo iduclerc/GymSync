@@ -1,36 +1,25 @@
+<!doctype html>
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <!-- DESCRIÇÃO DO SITE -->
-        <meta name="description" content="GymSync: um template HTML para facilitar os seus objetivos Fitness">
-        <meta name="keyword" content="HTML, CSS, BOOTSTRAP, JAVACRIPT">
-        <meta name="author" centent="GymSync">
-        <!-- VISUALIZAÇÃO OTIMIZADA PARA DISPOSITIVOS MÓVEIS -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale =1.0">
-        <title>GymSync</title>
-        <!-- FONTES DO GOOGLE -->
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Podkova:wght@800&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/png" href="" sizes="32X32">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- CSS GLOBAL -->
-        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/bootstrap-grid.min.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/header-footer.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/animate.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'app_gymsync/css/index.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-
-
-    </head>
-
+    <!-- Carregando o CSS do Django -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app_gymsyn/productPage.css' %}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>GymSync/serviços</title>
+</head>
 <body>
-    <header>
-        <!-- BARRA DE NAVEGAÇÃO DESKTOP -->
+    <div class="wrapper">
         <nav class="container-fluid topnav hide">
             <div class="row wrapper">
                 <div class="col-3 col-sm-3 col-md-3 col-lg-3">
@@ -44,19 +33,13 @@
                                 <li><a href="./index.html">Página Inicial</a></li>
                             </ul>
                         </li>
-                    
-                        <!-- SERVIÇOS -->
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">SERVIÇOS</a> 
                             <ul class="dropdown-custom-content">
-                                <li><a href="{% url 'criar_treino' %}" class="btn btn-primary">Acessar treino</a></li>
-                                <li><a href="{% url 'cadastro' %}" class="btn btn-primary">Cadastro</a></li>
-                                <li><a href="{% url 'lista_treinos' %}" class="btn btn-primary">Excluir treino</a></li>
+                                <li><a href="./servicos.html">Acessar treino</a></li>
                                 <li><a href="./group-classes.html">Alterar treinos</a></li>
-                                <li><a href="{% url 'add_exercicio' %}" class="btn btn-primary">Adicionar exercicios</a></li>
                             </ul>
                         </li>                   
-                        <!-- NOSSA EQUIPE -->
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a>
                             <ul class="dropdown-custom-content">
@@ -69,228 +52,33 @@
                 </div>
             </div>
         </nav>
-        <!-- FIM DA BARRA DE NAVEGAÇÃO DESKTOP -->
 
-        <!-- INÍCIO DA NAVEGAÇÃO MÓVEL -->
-        <div class="fixed-top guy hide-mobile-nav">
-            <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-                <div class="p-4 nav-bg">
-                    <h5 class="text-white h4">
-                        <ul class="mobile-nav">
-                            <li>
-                                <input class="form-control mr-sm-2" type="search" placeholder="Palavra-chave" aria-label="Buscar">
-                            </li>
-                            <li><a href="./index.html">INÍCIO</a></li>
-                            <li><a href="./services.html">SERVIÇOS</a></li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item text-dark" href="./products.html">PRODUTOS</a>
-                                </div>
-                            </li>
-                            <li><a href="./team.html">NOSSA EQUIPE</a></li>
-                            <li><a href="./about.html">SOBRE NÓS</a></li>
-                            <li><a href="./contact.html">CONTATO</a></li>
-                        </ul>
-                    </h5>
+        <section class="container mt-5">
+            <h2>Adicionar Treino</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nome">Nome do Treino:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
                 </div>
-            </div>
-            <nav class="navbar navbar-dark hj">
-                <h1 class="company-name-mobile">Gym<b id="bold">Sync</b></h1>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class=""><img src="{% static 'images/images/navicon.svg' %}" id="navicon"></span>
-                </button>
-            </nav>
-        </div>
-    </header>
-    <!-- header ends -->
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="main">
-        <section class="cover">
-            <!-- Adicionando a imagem diretamente no HTML -->
-            <img src="{% static 'images/images/banner_services.png' %}" alt="GymSync Banner" style="position: absolute; width: 100%; height: 80vh; object-fit: cover; z-index: -1; top: 100px; left: -20px;">
-
-            
-            <h1 id="slogan">Seja Fit, Seja GymSync!</h1>
-            <p class="covertext">
-                Estar em forma é essencial para uma saúde forte,<br>e nunca é tarde para voltar à ativa. O GymSync <br>
-                torna fácil e prático cuidar do seu condicionamento físico.
-            </p>
+                <div class="form-group">
+                    <label for="numero_series">Número de Séries:</label>
+                    <input type="number" class="form-control" id="numero_series" name="numero_series" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="agrupamento_muscular">Agrupamento Muscular:</label>
+                    <select class="form-control" id="agrupamento_muscular" name="agrupamento_muscular" required>
+                        <option value="peito">Peito</option>
+                        <option value="costas">Costas</option>
+                        <option value="pernas">Pernas</option>
+                        <option value="ombros">Ombros</option>
+                        <option value="braços">Braços</option>
+                        <option value="abdomen">Abdômen</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Treino</button>
+            </form>
         </section>
-        
-        <section class="cards">
-            <div class="row wrapper card_s animated bounceIn">
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="card-body grey mk">
-                        <h5 class="card-title">Acesse seus treinos</h5>
-                        <p class="card-text">Aqui, você pode acessar seus treinos de forma simples e manter
-                            o foco no seu bem-estar, acompanhando sua evolução física de maneira prática e 
-                            eficiente.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="card-body orange mk">
-                        <h5 class="card-title">Personalize seus treinos</h5>
-                        <p class="card-text">Aqui você pode adicionar e remover
-                            exercícios a sua lista de treinos.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="card-body grey">
-                        <h5 class="card-title">Filtre os exercícios por categoria</h5>
-                        <p class="card-text">No GymSync, você pode facilmente filtrar 
-                            seus exercícios por categoria, facilitando a organização e 
-                            o foco nos seus objetivos de treino.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
-                    <div class="card-body orange">
-                        <h5 class="card-title">Exporte seus treinos para PDF</h5>
-                        <p class="card-text">No GymSync, você tem a opção de exportar 
-                            seus treinos para PDF, facilitando o acompanhamento e registro 
-                            do seu progresso.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-                <!-- seção sobre começa -->
-				<section class="about">
-                    <div class="row aboutwrapper">
-                        <!-- Adicionando a imagem diretamente no HTML -->
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 about-img">
-                            <img src="{% static 'images/images/main-pic.png' %}" alt="GymSync Image" style="width: 100%; height: 60vh; object-fit: cover;">
-
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 about-content">
-                            <div class="about-inner">
-                                <h1 class="title">Sobre a GymSync</h1>
-                                <p class="about-text">
-                                    O GymSync é uma plataforma desenvolvida para ajudar você a alcançar seus objetivos de saúde 
-                                    e condicionamento físico. Nosso foco é oferecer uma experiência prática e acessível para quem busca 
-                                    melhorar a qualidade de vida através de um acompanhamento eficiente e personalizado. Com o GymSync, 
-                                    você estará sempre conectado à sua jornada fitness, mantendo o foco no que realmente importa: sua saúde 
-                                    e bem-estar.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-
-				<!-- seção sobre termina -->
-				<!-- seção de categorias -->
-				<section class="Gymclass">
-					<div class="try">
-						<h1 class="title">Algumas categorias </h1>
-					</div>
-					<div class=" row Gymclasswrapper">
-						<div class="col-12 col-sm-4 col-md-4 col-lg-4">
-							<img src="{% static 'images/images/gym1.svg' %}" class="gym-img">
-							<span class="cls">
-								<p class="gym-class clas2">Core</p>
-							</span>
-						</div>
-						<div class="col-12 col-sm-4 col-md-4 col-lg-4">
-							<img src="{% static 'images/images/gym2.svg' %}" class="gym-img">
-							<span class="cls">
-								<p class="gym-class clas2">Força</p>
-							</span>
-						</div>
-						<div class="col-12 col-sm-4 col-md-4 col-lg-4">
-							<img src="{% static 'images/images/gym3.svg' %}" class="gym-img">
-							<span class="cls">
-								<p class="gym-class clas2">Cardiovasculares</p>
-							</span>
-						</div>
-					</div>
-				</section>
-				
-				<!-- galeria começa -->
-				<section class="gallery animated bounce">
-					<div class="">
-						<h1 class="title">Nossa Galeria</h1>
-					</div>
-					<div class="row gallerywrapper">
-						<div class="col-12 col-sm-4 col-md-4 col-lg-4 size">
-							<img src="{% static 'images/images/gallery1.svg' %}" class="gallery-img">
-						</div>
-						<div class="col-12 col-sm-4 col-md-4 col-lg-4 size">
-							<img src="{% static 'images/images/gallery2.svg'%}" class="gallery-img">
-						</div>
-						<div class="col-12 col-sm-4 col-md-4 col-lg-4 size">
-							<img src="{% static 'images/images/gallery3.svg' %}" class="gallery-img">
-						</div>
-					</div>
-				</section>
-				
-				
-				<!-- rodapé desktop começa -->
-				<footer class="foot hide">
-					<nav class="foot-nav">
-						<ul class="footnav">
-							<li class="companyname desk">GymSync</li>
-							<li class="margin list"><a href="./index.html">INÍCIO</a></li>
-						</ul>
-						<hr id="hr">
-						<div class="socials">
-							<p class="slogn">A MELHOR MANEIRA DE SER SAUDÁVEL</p>
-							<p class="socialicons margin">
-								<a href="#"><img class="m-0 p-0 px-2 margin" src="{% static 'images/images/instagram.svg' %}" alt="logo instagram"></a>
-								<a href="#"><img class="m-0 p-0 px-2" src="{% static 'images/images/twitter.svg' %}" alt="logo twitter"></a>
-								<a href="#"><img class="m-0 p-0 px-2" src="{% static 'images/images/facebook.svg' %}" alt="logo facebook"></a>
-							</p>
-						</div>
-					</nav>
-				</footer>
-				<!-- rodapé desktop termina -->
-		
-				<!-- rodapé móvel começa -->
-				<footer class="mobile-foot hd">
-					<div>
-						<h1 class="companyname">GymSync</h1>
-					</div>
-					<div>
-						<ul class="mobilenav">
-							<li><a href="index.html">INÍCIO</a></li>
-						</ul>
-					</div>
-					<div>
-						<ul class="mobilenav">
-							<li class="">A MELHOR MANEIRA DE SER SAUDÁVEL</li>
-							<li>
-								<p class="socialicons margin">
-									<a href="#"><img class="m-0 p-0 px-2 margin" src="{% static 'images/images/instagram.svg' %}" alt="logo instagram"></a>
-									<a href="#"><img class="m-0 p-0 px-2" src="{% static 'images/images/twitter.svg' %}" alt="logo twitter"></a>
-									<a href="#"><img class="m-0 p-0 px-2" src="{% static 'images/images/facebook.svg' %}" alt="logo facebook"></a>
-								</p>
-							</li>
-						</ul>
-					</div>
-				</footer>
-		
-				<!-- ARQUIVOS JAVASCRIPT -->
-				<script src="https://kit.fontawesome.com/19f68977af.js" crossorigin="anonymous"></script>
-				<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-					integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-					integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-					crossorigin="anonymous"></script>
-				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-					integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-					crossorigin="anonymous"></script>
-				<script src="js/main.js"></script>
-				<script type="text/javascript" src="js/wow.js"></script>
-			</main>
-		</body>
-		</html> 
-        <!--aaaaaaaaaaaaaaaaaa-->
+    </div> 
+</body>
+</html>
