@@ -2,14 +2,15 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Treino
+from .models import Treino ,Exercicios
 from .forms import ExercicioForm
 from django.contrib import messages
 from .models import Usuario
 
 
 def forum(request):
-    return render(request,'forum.html')
+    treinos = Treino.objects.all()
+    return render(request,'forum.html', {'treinos': treinos})
 
        
 
@@ -27,21 +28,6 @@ def criar_treino(request):
         return redirect('forum') #tem que retornar a pagina para adicionar os exercios
 
     return render(request, 'criar_treino.html')
-
-def add_exercicio(request,treino_id):
-    treino = get_object_or_404(Treino,id=treino_id)
-    
-    if request.method == 'POST':
-        form = ExercicioForm(request.POST)
-        if form.is_valid():
-            exercicio = form.save(commit=False)
-            exercicio.treino = treino
-            exercicio.save()
-            return redirect('forum.html')
-    else:
-        form = ExercicioForm()
-
-    return render(request, 'adicionar_exercicio.html', {'form': form, 'treino': treino})
 
 def excluir_treino(request,treino_id):
     
@@ -80,3 +66,20 @@ def cadastro(request):
 
     return render(request, 'cadastro.html')
 
+
+def add_exercicio(request, treino_id):
+    if request.method == 'POST':
+        # Obtém os dados do formulário
+        nome = request.POST.get('nome')
+        repeticoes = request.POST.get('repeticoes')
+        carga = request.POST.get('carga')
+
+        # Cria um novo exercício associado ao treino
+        exercicio = Exercicios(treino_id=treino_id, nome=nome, repeticoes=repeticoes, carga=carga)
+        exercicio.save()
+
+        return redirect('forum')
+
+    # Se o método não for POST, pega todos os treinos para exibir
+    treinos = Treino.objects.all()
+    return render(request, 'add_exercicio.html', {'treinos': treinos})

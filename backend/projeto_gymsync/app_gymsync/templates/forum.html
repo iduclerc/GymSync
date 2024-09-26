@@ -53,8 +53,14 @@
                                 <li><a href="{% url 'cadastro' %}" class="btn btn-primary">Cadastro</a></li>
                                 <li><a href="{% url 'criar_treino' %}" class="btn btn-primary">Acessar treino</a></li>
                                 <li><a href="{% url 'lista_treinos' %}" class="btn btn-primary">Excluir treino</a></li>
-                                <li><a href="./group-classes.html">Alterar treinos</a></li>
-                                <li><a href="{% url 'add_exercicio' %}" class="btn btn-primary">Adicionar exercicios</a></li>
+
+                                <ul>
+                                    {% for treino in treinos %}
+                                        </h1>{{treino.nome }}</h1>
+                                        <li><a href="{% url 'add_exercicio' treino.id %}">Adicionar Exercício</a></li>
+                                    {% endfor %}
+                                </ul>
+
                             </ul>
                         </li>                   
                         <!-- NOSSA EQUIPE -->

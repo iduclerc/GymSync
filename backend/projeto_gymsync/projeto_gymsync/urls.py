@@ -29,4 +29,6 @@ urlpatterns = [
     path('forum/add_exercicio/',views.add_exercicio,name='add_exercicio'),
     path('excluir_treino/<int:treino_id>/', views.excluir_treino, name='excluir_treino'),
     path('cadastro/', views.cadastro, name='cadastro'),
+    path('treino/<int:treino_id>/add_exercicio/', views.add_exercicio, name='add_exercicio'),
+    path('treino/add_exercicio/', views.add_exercicio, name='add_exercicio'),
  ]
