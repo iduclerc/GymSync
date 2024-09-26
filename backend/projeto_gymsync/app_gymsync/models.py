@@ -24,7 +24,7 @@ class Exercicios(models.Model):
 
 
 class Usuario(models.Model):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True) #unique=True criar 1 conta por email
     senha = models.CharField(max_length=128)  # Para armazenar a senha hash
 
     def save(self, *args, **kwargs):
