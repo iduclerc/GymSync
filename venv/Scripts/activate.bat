@@ -8,7 +8,11 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
+<<<<<<< HEAD
 set VIRTUAL_ENV=C:\Users\Israel Duclerc\OneDrive\Documentos\GitHub\GymSync\venv
+=======
+set VIRTUAL_ENV=C:\Users\victo\OneDrive\Documentos\GitHub\Projeto-FDS\venv
+>>>>>>> f59912150e6cb189381a0938ee5b17d2c90c74eb
 
 if not defined PROMPT set PROMPT=$P$G
 

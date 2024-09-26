@@ -1,6 +1,23 @@
-<h2>Lista de Treinos</h2>
-<ul>
-    {% for treino in treinos %}
-    <li>{{ treino.nome }} - {{ treino.numero_series }} séries - {{ treino.agrupamento_muscular }}</li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Treinos</title>
+</head>
+<body>
+    <h2>Lista de Treinos</h2>
+    
+    <ul>
+        <!-- Loop através da lista de treinos enviada pela view -->
+        {% for treino in treinos %}
+        <li>
+            {{ treino.nome }} (ID: {{ treino.id }})  <!-- Exibe o nome do treino -->
+            <form action="{% url 'excluir_treino' treino.id %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" name="excluir_treino">Excluir treino</button>  <!-- Botão para excluir o treino -->
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
