@@ -29,7 +29,6 @@
     </head>
 
 <body>
-    <!-- INÍCIO DA BARRA DE NAVEGAÇÃO -->
     <header>
         <!-- BARRA DE NAVEGAÇÃO DESKTOP -->
         <nav class="container-fluid topnav hide">
@@ -50,8 +49,8 @@
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">SERVIÇOS</a> 
                             <ul class="dropdown-custom-content">
-                                <li><a href="{% url 'cadastro' %}" class="btn btn-primary">Cadastro</a></li>
                                 <li><a href="{% url 'criar_treino' %}" class="btn btn-primary">Acessar treino</a></li>
+                                <li><a href="{% url 'cadastro' %}" class="btn btn-primary">Cadastro</a></li>
                                 <li><a href="{% url 'lista_treinos' %}" class="btn btn-primary">Excluir treino</a></li>
                                 <li><a href="./group-classes.html">Alterar treinos</a></li>
                                 <li><a href="{% url 'add_exercicio' %}" class="btn btn-primary">Adicionar exercicios</a></li>
@@ -59,7 +58,7 @@
                         </li>                   
                         <!-- NOSSA EQUIPE -->
                         <li class="dropdown-custom">
-                            <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a> <!-- Item principal -->
+                            <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a>
                             <ul class="dropdown-custom-content">
                                 <li><a href="./team.html">Treinadores</a></li>
                                 <li><a href="./about.html">Sobre nós</a></li>
@@ -112,49 +111,48 @@
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="main">
         <section class="cover">
+            <!-- Adicionando a imagem diretamente no HTML -->
+            <img src="{% static 'images/images/banner_services.png' %}" alt="GymSync Banner" style="position: absolute; width: 100%; height: 80vh; object-fit: cover; z-index: -1; top: 100px; left: -20px;">
+
+            
             <h1 id="slogan">Seja Fit, Seja GymSync!</h1>
             <p class="covertext">
                 Estar em forma é essencial para uma saúde forte,<br>e nunca é tarde para voltar à ativa. O GymSync <br>
                 torna fácil e prático cuidar do seu condicionamento físico.
             </p>
-        
         </section>
+        
         <section class="cards">
-            <div class="row wrapper card_s animated  bounceIn">
-                <div class="col-6 col-sm-6 col-md-3 col-lg-3 ">
+            <div class="row wrapper card_s animated bounceIn">
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <div class="card-body grey mk">
                         <h5 class="card-title">Acesse seus treinos</h5>
                         <p class="card-text">Aqui, você pode acessar seus treinos de forma simples e manter
-                             o foco no seu bem-estar, acompanhando sua evolução física de maneira prática e 
-                             eficiente.
+                            o foco no seu bem-estar, acompanhando sua evolução física de maneira prática e 
+                            eficiente.
                         </p>
-
                     </div>
                 </div>
-                <div class=" col-6 col-sm-6 col-md-3 col-lg-3">
+                <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <div class="card-body orange mk">
                         <h5 class="card-title">Personalize seus treinos</h5>
-
                         <p class="card-text">Aqui você pode adicionar e remover
-                            exercicios a sua lista de treinos.
+                            exercícios a sua lista de treinos.
                         </p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <div class="card-body grey">
                         <h5 class="card-title">Filtre os exercícios por categoria</h5>
-
                         <p class="card-text">No GymSync, você pode facilmente filtrar 
                             seus exercícios por categoria, facilitando a organização e 
                             o foco nos seus objetivos de treino.
                         </p>
-
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                     <div class="card-body orange">
                         <h5 class="card-title">Exporte seus treinos para PDF</h5>
-
                         <p class="card-text">No GymSync, você tem a opção de exportar 
                             seus treinos para PDF, facilitando o acompanhamento e registro 
                             do seu progresso.
@@ -163,26 +161,32 @@
                 </div>
             </div>
         </section>
+    </main>
+    
                 <!-- seção sobre começa -->
 				<section class="about">
-					<div class="row aboutwrapper">
-						<div class="col-6 col-sm-6 col-md-6 col-lg-6 about-img">
-						</div>
-		
-						<div class="col-6 col-sm-6 col-md-6 col-lg-6 about-content">
-							<div class="about-inner">
-								<h1 class="title">Sobre a GymSync</h1>
-								<p class="about-text">
-									O GymSync é uma plataforma desenvolvida para ajudar você a alcançar seus objetivos de saúde 
+                    <div class="row aboutwrapper">
+                        <!-- Adicionando a imagem diretamente no HTML -->
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 about-img">
+                            <img src="{% static 'images/images/main-pic.png' %}" alt="GymSync Image" style="width: 100%; height: 60vh; object-fit: cover;">
+
+                        </div>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 about-content">
+                            <div class="about-inner">
+                                <h1 class="title">Sobre a GymSync</h1>
+                                <p class="about-text">
+                                    O GymSync é uma plataforma desenvolvida para ajudar você a alcançar seus objetivos de saúde 
                                     e condicionamento físico. Nosso foco é oferecer uma experiência prática e acessível para quem busca 
                                     melhorar a qualidade de vida através de um acompanhamento eficiente e personalizado. Com o GymSync, 
                                     você estará sempre conectado à sua jornada fitness, mantendo o foco no que realmente importa: sua saúde 
                                     e bem-estar.
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+
 				<!-- seção sobre termina -->
 				<!-- seção de categorias -->
 				<section class="Gymclass">
