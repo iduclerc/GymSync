@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Carregando o CSS do Django -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app_gymsyn/css/productPage.css' %}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>GymSync/serviços</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="container-fluid topnav hide">
+            <div class="row wrapper">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3">
+                    <h1 class="company-name">Gym<b id="bold">Sync</b></h1>
+                </div>
+                <div class="col-9 col-sm-9 col-md-9 col-lg-9">
+                    <ul class="navigation">
+                        <li class="dropdown-custom">
+                            <a href="#" class="dropdown-custom-toggle">INÍCIO</a> 
+                            <ul class="dropdown-custom-content">
+                                <li><a href="./index.html">Página Inicial</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-custom">
+                            <a href="#" class="dropdown-custom-toggle">SERVIÇOS</a> 
+                            <ul class="dropdown-custom-content">
+                                <li><a href="./servicos.html">Acessar treino</a></li>
+                                <li><a href="./group-classes.html">Alterar treinos</a></li>
+                            </ul>
+                        </li>                   
+                        <li class="dropdown-custom">
+                            <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a>
+                            <ul class="dropdown-custom-content">
+                                <li><a href="./team.html">Treinadores</a></li>
+                                <li><a href="./about.html">Sobre nós</a></li>
+                                <li><a href="./contact.html">Contato</a></li>
+                            </ul>
+                        </li>
+                    </ul>                   
+                </div>
+            </div>
+        </nav>
+
+        <section class="container mt-5">
+            <h2>Adicionar Treino</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="nome">Nome do Treino:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="numero_series">Número de Séries:</label>
+                    <input type="number" class="form-control" id="numero_series" name="numero_series" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="agrupamento_muscular">Agrupamento Muscular:</label>
+                    <select class="form-control" id="agrupamento_muscular" name="agrupamento_muscular" required>
+                        <option value="peito">Peito</option>
+                        <option value="costas">Costas</option>
+                        <option value="pernas">Pernas</option>
+                        <option value="ombros">Ombros</option>
+                        <option value="braços">Braços</option>
+                        <option value="abdomen">Abdômen</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Treino</button>
+            </form>
+        </section>
+    </div> 
+</body>
+</html>

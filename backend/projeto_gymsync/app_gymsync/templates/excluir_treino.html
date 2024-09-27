@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir Treino</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h2>Treinos Disponíveis</h2>
+    
+    <ul>
+        <!-- Loop através da lista de treinos enviada pela view -->
+        {% for treino in treinos %}
+        <li>
+            <strong>{{ treino.nome }}</strong> <!-- Exibe o nome do treino -->
+            <form action="{% url 'excluir_treino'  %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Excluir Treino</button> <!-- Botão para excluir o treino -->
+            </form>
+        </li>
+        {% empty %}
+        <p>Nenhum treino disponível.</p>
+        {% endfor %}
+    </ul>
+    
+    <a href="{% url 'criar_treino' %}">Adicionar novo treino</a> <!-- Link para criar novo treino -->
+</body>
+</html>
