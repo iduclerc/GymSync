@@ -68,18 +68,21 @@ def cadastro(request):
 
 
 def add_exercicio(request, treino_id):
+    treino = get_object_or_404(Treino, id=treino_id)
+
     if request.method == 'POST':
-        # Obtém os dados do formulário
         nome = request.POST.get('nome')
         repeticoes = request.POST.get('repeticoes')
         carga = request.POST.get('carga')
 
         # Cria um novo exercício associado ao treino
-        exercicio = Exercicios(treino_id=treino_id, nome=nome, repeticoes=repeticoes, carga=carga)
+        exercicio = Exercicios(treino=treino, nome=nome, repeticoes=repeticoes, carga=carga)
         exercicio.save()
 
         return redirect('forum')
 
-    # Se o método não for POST, pega todos os treinos para exibir
+    return render(request, 'add_exercicio.html', {'treino': treino})
+
+def servicos(request):
     treinos = Treino.objects.all()
-    return render(request, 'add_exercicio.html', {'treinos': treinos})
+    return render(request, 'servicos.html', {'treinos': treinos})

@@ -1,38 +1,229 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Exercício</title>
-    <style>
-        /* Estilo do corpo e elementos do formulário */
-    </style>
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<h2>Adicionar Exercício</h2>
+    <!-- Carregar estáticos do Django -->
+    {% load static %}
 
-<form method="post">
-    {% csrf_token %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <label for="treino">Selecione o Treino:</label>
-    <select id="treino" name="treino_id" required>
-        {% for treino in treinos %}
-            <option value="{{ treino.id }}">{{ treino.nome }}</option>
-        {% endfor %}
-    </select>
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'app_gymsync/css/add_exercicio.css' %}">
 
-    <label for="nome">Nome do Exercício:</label>
-    <input type="text" id="nome" name="nome" required>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <label for="repeticoes">Número de Repetições:</label>
-    <input type="number" id="repeticoes" name="repeticoes" required>
+    <title>GymSync/serviços</title>
+  </head>
+  <body>
 
-    <label for="carga">Carga (em kg):</label>
-    <input type="number" id="carga" name="carga" required>
 
-    <button type="submit">Adicionar Exercício</button>
-</form>
+<!--inicio-->
+    
+    <h2 class="centered-title">
+        <span class="title-part1">Adicionar </span> 
+        <span class="title-part2"> Exercício</span>
+    </h2>
+    
 
-</body>
+
+    <!-- Cartões de Exercícios -->
+
+    <!-- Exercício 1 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 1">
+        <h3>Exercício 1</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino1">Selecione o Treino:</label>
+            <select id="treino1" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes1">Número de Repetições:</label>
+            <input type="number" id="repeticoes1" name="repeticoes" required>
+
+            <label for="carga1">Carga (em kg):</label>
+            <input type="number" id="carga1" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 2 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 2">
+        <h3>Exercício 2</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino2">Selecione o Treino:</label>
+            <select id="treino2" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes2">Número de Repetições:</label>
+            <input type="number" id="repeticoes2" name="repeticoes" required>
+
+            <label for="carga2">Carga (em kg):</label>
+            <input type="number" id="carga2" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 3 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 3">
+        <h3>Exercício 3</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino3">Selecione o Treino:</label>
+            <select id="treino3" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes3">Número de Repetições:</label>
+            <input type="number" id="repeticoes3" name="repeticoes" required>
+
+            <label for="carga3">Carga (em kg):</label>
+            <input type="number" id="carga3" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 4 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 4">
+        <h3>Exercício 4</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino4">Selecione o Treino:</label>
+            <select id="treino4" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes4">Número de Repetições:</label>
+            <input type="number" id="repeticoes4" name="repeticoes" required>
+
+            <label for="carga4">Carga (em kg):</label>
+            <input type="number" id="carga4" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 5 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 5">
+        <h3>Exercício 5</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino5">Selecione o Treino:</label>
+            <select id="treino5" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes5">Número de Repetições:</label>
+            <input type="number" id="repeticoes5" name="repeticoes" required>
+
+            <label for="carga5">Carga (em kg):</label>
+            <input type="number" id="carga5" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 6 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 6">
+        <h3>Exercício 6</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino6">Selecione o Treino:</label>
+            <select id="treino6" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes6">Número de Repetições:</label>
+            <input type="number" id="repeticoes6" name="repeticoes" required>
+
+            <label for="carga6">Carga (em kg):</label>
+            <input type="number" id="carga6" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 7 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 7">
+        <h3>Exercício 7</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino7">Selecione o Treino:</label>
+            <select id="treino7" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes7">Número de Repetições:</label>
+            <input type="number" id="repeticoes7" name="repeticoes" required>
+
+            <label for="carga7">Carga (em kg):</label>
+            <input type="number" id="carga7" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <!-- Exercício 8 -->
+    <div class="exercise-box-custom">
+        <img src="https://via.placeholder.com/300x200" alt="Exercício 8">
+        <h3>Exercício 8</h3>
+        <form method="post">
+            {% csrf_token %}
+            <label for="treino8">Selecione o Treino:</label>
+            <select id="treino8" name="treino_id" required>
+                {% for treino in treinos %}
+                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="repeticoes8">Número de Repetições:</label>
+            <input type="number" id="repeticoes8" name="repeticoes" required>
+
+            <label for="carga8">Carga (em kg):</label>
+            <input type="number" id="carga8" name="carga" required>
+
+            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
 </html>

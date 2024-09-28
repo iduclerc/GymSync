@@ -14,8 +14,8 @@
         {% for treino in treinos %}
         <li>
             <strong>{{ treino.nome }}</strong> <!-- Exibe o nome do treino -->
-            <form action="{% url 'excluir_treino'  %}" method="POST">
-                {% csrf_token %}
+            <!-- Alteração: mudar o método para GET e redirecionar para a página de confirmação -->
+            <form action="{% url 'excluir_treino' treino.id %}" method="GET"> <!-- Passe o ID do treino -->
                 <button type="submit" class="btn btn-danger">Excluir Treino</button> <!-- Botão para excluir o treino -->
             </form>
         </li>

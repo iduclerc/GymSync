@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Exclusão</title>
+</head>
+<body>
+    <h2>Tem certeza que deseja excluir o treino "{{ treino.nome }}"?</h2>
+
+    <form action="{% url 'excluir_treino' treino.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, excluir</button>
+        <a href="{% url 'forum' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</body>
+</html>

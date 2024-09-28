@@ -5,15 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Carregar estáticos do Django -->
+    {% load static %}
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/productPage.css" type="text/css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'app_gymsync/css/productPage.css' %}">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    
 
     <title>GymSync/serviços</title>
   </head>
@@ -35,20 +39,11 @@
                 </li>
             
                 <!-- SERVIÇOS -->
-                <li class="dropdown-custom">
-                    <a href="#" class="dropdown-custom-toggle">SERVIÇOS</a> 
-                    <ul class="dropdown-custom-content">
-                        <li><a href="./servicos.html">Acessar treino</a></li>
-                        <li><a href="./group-classes.html">Alterar treinos</a></li>
-                    </ul>
-                </li>                   
                 <!-- NOSSA EQUIPE -->
                 <li class="dropdown-custom">
                     <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a>
                     <ul class="dropdown-custom-content">
-                        <li><a href="./team.html">Treinadores</a></li>
                         <li><a href="./about.html">Sobre nós</a></li>
-                        <li><a href="./contact.html">Contato</a></li>
                     </ul>
                 </li>
             </ul>                   
@@ -65,16 +60,13 @@
               <li>
                 <input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" aria-label="Search">
               </li>
-              <li><a href="./index.html">Inicio</a></li>
-              <li><a href="./services.html">SERVICES</a></li>
+              <li><a href="./index.html">Inicio</a></li>    
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
               </a>
               </li>
-              <li><a href="./team.html">Treinadores</a></li>
               <li><a href="./about.html">Sobre nós</a></li>
-              <li><a href="./contact.html">Contato</a></li>
             </ul>
           </h5>
         </div>
@@ -100,12 +92,11 @@
         </div>
        
 
-        <h2>Escolha o seu serviço.</h2>
+        <h2 class="highlighted-title">Escolha o seu serviço.</h2>
+
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            
             <div class="carousel-inner">
-
                 <div class="item active">
                     <div class="caro_cover">
                         <div class="carousel_1">
@@ -114,28 +105,24 @@
                                     <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/threadmill_W_cdnusi.png" 
                                     class="card-img-top" alt="threadmill">
                                     <div class="card-body">
-                                        <h5 class="card-title">Crie seu treino </h5>
-                                        <a href="./index.html" class="btn btn-primary">Aqui</a>
+                                        <h5 class="card-title">Crie seu treino</h5>
+                                        <a href="{% url 'criar_treino' %}" class="btn btn-primary">Aqui</a>
                                     </div>
                                 </div> 
                                 <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
-                                    class="card-img-top" alt="dumbbells">
+                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" class="card-img-top" alt="dumbbells">
                                     <div class="card-body">
-                                        <h5 class="card-title">Adicione exercicios ao treino</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div> 
-                            </div> 
-                            <div class="secondrow">
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                    class="card-img-top" alt="weight plates">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Exclua exercicios do seu treino</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
+                                        <h5 class="card-title">Adicione exercícios ao treino</h5>
+                                        {% if treinos.exists %}  <!-- Verifica se há treinos disponíveis -->
+                                            <a href="{% url 'add_exercicio' treinos.first.id %}" class="btn btn-primary">Aqui</a>  <!-- Pega o primeiro treino -->
+                                        {% else %}
+                                            <span>Treino indisponível</span>
+                                        {% endif %}
                                     </div>
                                 </div>
+                                
+                            </div> 
+                            <div class="secondrow">
                                 <div class="card">
                                     <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/kettle_W_maqzia.png" 
                                     class="card-img-top" alt="Kettlebells">
@@ -144,114 +131,19 @@
                                         <a href="#" class="btn btn-primary">Aqui</a>
                                     </div>
                                 </div> 
-                
-                            </div> 
-                
+                            </div>                          
                         </div> 
                     </div>
                 </div>
+            </div>
         
-                <div class="item">
-                    <div class="caro_cover">
-                        <div class="carousel_1">
-                            <div class="firstrow">
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/threadmill_W_cdnusi.png" 
-                                    class="card-img-top" alt="threadmill">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Exportar por PDF</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
-                                    class="card-img-top" alt="dumbbells">
-                                    <div class="card-body">
-                                        <h5 class="card-title">6 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div> 
-                            </div> 
-                            <div class="secondrow">
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                    class="card-img-top" alt="weight plates">
-                                    <div class="card-body">
-                                        <h5 class="card-title">7 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div> 
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/kettle_W_maqzia.png" 
-                                    class="card-img-top" alt="Kettlebells">
-                                    <div class="card-body">
-                                        <h5 class="card-title">8 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div>
-                
-                            </div>
-                
-                        </div>
-                        </div>
-                </div>
-            
-                <div class="item">
-                    <div class="caro_cover">
-                        <div class="carousel_1">
-                            <div class="firstrow">
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/threadmill_W_cdnusi.png" 
-                                    class="card-img-top" alt="threadmill">
-                                    <div class="card-body">
-                                        <h5 class="card-title">9 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div> 
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
-                                    class="card-img-top" alt="dumbbells">
-                                    <div class="card-body">
-                                        <h5 class="card-title">10 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="secondrow">
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                    class="card-img-top" alt="weight plates">
-                                    <div class="card-body">
-                                        <h5 class="card-title">11 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div> 
-                                <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/kettle_W_maqzia.png" 
-                                    class="card-img-top" alt="Kettlebells">
-                                    <div class="card-body">
-                                        <h5 class="card-title">12 historia</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
-                                    </div>
-                                </div> 
-                
-                            </div>
-                
-                        </div>
-                    </div>
-                </div>
-                
-
-            </div> 
-
-
             <!-- Indicadores -->
             <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
-
+        
             <!-- esquerda e direita -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -261,60 +153,11 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
             </a>
-        </div> 
-
-        <div class="last-part">
-            <p class="hot">Mais usados</p>
-            <p>Os serviços mais usados.</p>
-            <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="10000">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="caro_cover">
-                            <div class="carousel_1">
-                                <div class="firstrow">
-                                    <div class="card">
-                                        <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                        class="card-img-top" alt="threadmill">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Alguma Histoia</h5>
-                                            <a href="#" class="btn btn-primary">Aqui</a>
-                                        </div>
-                                    </div> 
-                                    <div class="card">
-                                        <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                        class="card-img-top" alt="dumbbells">
-                                        <div class="card-body">
-                                            <h5 class="card-title">alguma historia</h5>
-                                            <a href="#" class="btn btn-primary">Aqui</a>
-                                        </div>
-                                    </div> 
-                                </div> 
-                                <div class="secondrow">
-                                    <div class="card">
-                                        <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                        class="card-img-top" alt="weight plates">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Alguma Histoia</h5>
-                                            <a href="#" class="btn btn-primary">aqui</a>
-                                        </div>
-                                    </div> 
-                                    <div class="card">
-                                        <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/discuss_W_pvmaya.png" 
-                                        class="card-img-top" alt="Kettlebells">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Alguma Histoia</h5>
-                                            <a href="#" class="btn btn-primary">Aqui</a>
-                                        </div>
-                                    </div> 
-                    
-                                </div> 
-                    
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
+        </div>
+        
+        
+        
+        
     <footer class="foot hide">
       <nav class="foot-nav">
         <ul class="footnav">
@@ -327,9 +170,9 @@
           <p class="slogn">Melhor jeito de ficar saudável</p>
           <p class="socialicons margin">
             <a href="#"><img class="m-0 p-0 px-2 margin" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520615/instagram_kaqojr.svg" alt="instagram logo"></a>
-                        <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520385/twitter_stabov.svg" alt="twitter logo"></a>
-                        <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520560/facebook_y76clf.svg" alt="pinterest logo"></a>
-                    </p>
+            <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520385/twitter_stabov.svg" alt="twitter logo"></a>
+            <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520560/facebook_y76clf.svg" alt="pinterest logo"></a>
+          </p>
         </div>
       </nav>
     </footer>
@@ -347,9 +190,9 @@
           <li>
             <p class="socialicons margin">
               <a href="#"><img class="m-0 p-0 px-2 margin" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520615/instagram_kaqojr.svg" alt="instagram logo"></a>
-                          <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520385/twitter_stabov.svg" alt="twitter logo"></a>
-                          <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520560/facebook_y76clf.svg" alt="pinterest logo"></a>
-                      </p>
+              <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520385/twitter_stabov.svg" alt="twitter logo"></a>
+              <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520560/facebook_y76clf.svg" alt="pinterest logo"></a>
+            </p>
           </li>
         </ul>
       </div>
