@@ -54,15 +54,9 @@
                                 <li><a href="{% url 'criar_treino' %}" class="btn btn-primary">Acessar treino</a></li>
                                 <li><a href="{% url 'lista_treinos' %}" class="btn btn-primary">Excluir treino</a></li>
                                 <li><a href="{% url 'servicos' %}" class="btn btn-primary">Serviços</a></li>
-                                <ul>
-                                    {% for treino in treinos %}
-                                        </h1>{{treino.nome }}</h1>
-                                        <li><a href="{% url 'add_exercicio' treino.id %}">Adicionar Exercício</a></li>
-                                    {% endfor %}
-                                </ul>
-
                             </ul>
-                        </li>                   
+                        </li>
+                        
                         <!-- NOSSA EQUIPE -->
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a> <!-- Item principal -->
