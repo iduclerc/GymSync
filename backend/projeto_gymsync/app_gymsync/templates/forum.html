@@ -42,7 +42,7 @@
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">INÍCIO</a> 
                             <ul class="dropdown-custom-content">
-                                <li><a href="./index.html">Página Inicial</a></li>
+                                <li><a href="{% url 'forum' %}">Página Inicial</a></li>
                             </ul>
                         </li>
                     
@@ -50,10 +50,8 @@
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">SERVIÇOS</a> 
                             <ul class="dropdown-custom-content">
-                                <li><a href="{% url 'cadastro' %}" class="btn btn-primary">Cadastro</a></li>
-                                <li><a href="{% url 'criar_treino' %}" class="btn btn-primary">Acessar treino</a></li>
-                                <li><a href="{% url 'lista_treinos' %}" class="btn btn-primary">Excluir treino</a></li>
-                                <li><a href="{% url 'servicos' %}" class="btn btn-primary">Serviços</a></li>
+                                <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+                                <li><a href="{% url 'servicos' %}">Serviços</a></li>
                             </ul>
                         </li>
                         
@@ -61,9 +59,9 @@
                         <li class="dropdown-custom">
                             <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a> <!-- Item principal -->
                             <ul class="dropdown-custom-content">
-                                <li><a href="./team.html">Treinadores</a></li>
-                                <li><a href="./about.html">Sobre nós</a></li>
-                                <li><a href="./contact.html">Contato</a></li>
+                                <li><a href="{% url 'forum' %}">Treinadores</a></li>
+                                <li><a href="{% url 'forum' %}">Sobre nós</a></li>
+                                <li><a href="{% url 'forum' %}">Contato</a></li>
                             </ul>
                         </li>
                     </ul>                   
@@ -81,8 +79,8 @@
                             <li>
                                 <input class="form-control mr-sm-2" type="search" placeholder="Palavra-chave" aria-label="Buscar">
                             </li>
-                            <li><a href="./index.html">INÍCIO</a></li>
-                            <li><a href="./services.html">SERVIÇOS</a></li>
+                            <li><a href="{% url 'forum' %}">INÍCIO</a></li>
+                            <li><a href="{% url 'forum' %}">SERVIÇOS</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
@@ -91,9 +89,9 @@
                                     <a class="dropdown-item text-dark" href="./products.html">PRODUTOS</a>
                                 </div>
                             </li>
-                            <li><a href="./team.html">NOSSA EQUIPE</a></li>
-                            <li><a href="./about.html">SOBRE NÓS</a></li>
-                            <li><a href="./contact.html">CONTATO</a></li>
+                            <li><a href="{% url 'forum' %}">NOSSA EQUIPE</a></li>
+                            <li><a href="{% url 'forum' %}">SOBRE NÓS</a></li>
+                            <li><a href="{% url 'forum' %}">CONTATO</a></li>
                         </ul>
                     </h5>
                 </div>

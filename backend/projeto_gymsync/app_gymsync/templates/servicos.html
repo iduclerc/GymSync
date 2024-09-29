@@ -34,7 +34,7 @@
                 <li class="dropdown-custom">
                     <a href="#" class="dropdown-custom-toggle">INÍCIO</a> 
                     <ul class="dropdown-custom-content">
-                        <li><a href="./index.html">Página Inicial</a></li>
+                        <li><a href="{% url 'forum' %}">Página Inicial</a></li>
                     </ul>
                 </li>
             
@@ -43,7 +43,7 @@
                 <li class="dropdown-custom">
                     <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a>
                     <ul class="dropdown-custom-content">
-                        <li><a href="./about.html">Sobre nós</a></li>
+                        <li><a href="{% url 'forum' %}">Sobre nós</a></li>
                     </ul>
                 </li>
             </ul>                   
@@ -127,8 +127,8 @@
                                     <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/kettle_W_maqzia.png" 
                                     class="card-img-top" alt="Kettlebells">
                                     <div class="card-body">
-                                        <h5 class="card-title">Filtre por categorias</h5>
-                                        <a href="#" class="btn btn-primary">Aqui</a>
+                                        <h5 class="card-title">Excluir Treino</h5>
+                                        <a href="{% url 'lista_treinos' %}" class="btn btn-primary">Aqui</a>
                                     </div>
                                 </div> 
                             </div>                          
