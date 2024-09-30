@@ -102,7 +102,13 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <!-- Entrega 2 -->
 <details id="entrega2">
     <summary>Entrega 2</summary>
-    <h3>Entrega 2...</h3>
+    <details>
+        <summary>Backlog</summary>
+        <h3>Print do quadro e backlog (JIRA):</h3>
+        <br>
+        <img src="img/img_Backlog2.jpg" alt="Imagem Backlog">
+        <img src="img/img_Jira2.jpg" alt="Imagem JIRA">
+    </details>
 </details>
 
 <!-- Entrega 3 -->
