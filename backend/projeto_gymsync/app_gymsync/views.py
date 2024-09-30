@@ -68,14 +68,14 @@ def cadastro(request):
 
 
 def add_exercicio(request, treino_id=None):
-    treinos = Treino.objects.all() 
+    treinos = Treino.objects.all()
     treino_selecionado = get_object_or_404(Treino, id=treino_id) if treino_id else None
 
     if request.method == 'POST':
-        nome = request.POST.get('nome')
+        nome = request.POST.get('exercicio_nome')  # Nome do exercício já predefinido no form
         repeticoes = request.POST.get('repeticoes')
         carga = request.POST.get('carga')
-        treino_id = request.POST.get('treino_id')  
+        treino_id = request.POST.get('treino_id')
 
         # Verifica se o treino foi selecionado corretamente
         treino = get_object_or_404(Treino, id=treino_id)

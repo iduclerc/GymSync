@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,28 +19,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <title>GymSync/serviços</title>
-  </head>
-  <body>
+    <title>Adicionar Exercício</title>
+</head>
+<body>
 
-
-<!--inicio-->
-    
     <h2 class="centered-title">
         <span class="title-part1">Adicionar </span> 
         <span class="title-part2"> Exercício</span>
     </h2>
-    
-
 
     <!-- Cartões de Exercícios -->
 
-    <!-- Exercício 1 -->
+    <!-- Exercício 1: Supino reto -->
     <div class="exercise-box-custom">
         <img src="{% static 'images/images/supino-reto.jpg' %}" alt="Supino reto">
         <h3>Supino reto</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Supino reto">
             <label for="treino1">Selecione o Treino:</label>
             <select id="treino1" name="treino_id" required>
                 {% for treino in treinos %}
@@ -58,12 +54,13 @@
         </form>
     </div>
 
-    <!-- Exercício 2 -->
+    <!-- Exercício 2: Levantamento terra -->
     <div class="exercise-box-custom">
-        <img src="{% static 'images/images/Levantamento terra.jpg' %}" alt="Levantamento terra">
+        <img src="{% static 'images/images/Levantamento terra.jpg.jpg' %}" alt="Levantamento Terra">
         <h3>Levantamento terra</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Levantamento terra">
             <label for="treino2">Selecione o Treino:</label>
             <select id="treino2" name="treino_id" required>
                 {% for treino in treinos %}
@@ -81,12 +78,13 @@
         </form>
     </div>
 
-    <!-- Exercício 3 -->
+    <!-- Exercício 3: Rosca direta -->
     <div class="exercise-box-custom">
         <img src="{% static 'images/images/rosca-direta.jpg' %}" alt="Rosca direta">
         <h3>Rosca direta</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Rosca direta">
             <label for="treino3">Selecione o Treino:</label>
             <select id="treino3" name="treino_id" required>
                 {% for treino in treinos %}
@@ -104,12 +102,13 @@
         </form>
     </div>
 
-    <!-- Exercício 4 -->
+    <!-- Exercício 4: Desenvolvimento lateral -->
     <div class="exercise-box-custom">
-        <img src="{% static 'images/images/Halteres.jpeg' %}" alt="Desenvolvimento lateral">
-        <h3>Desenvolvimnento lateral</h3>
+        <img src="{% static 'images/images/halteres.jpg' %}" alt="Desenvolvimento lateral">
+        <h3>Desenvolvimento lateral</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Desenvolvimento lateral">
             <label for="treino4">Selecione o Treino:</label>
             <select id="treino4" name="treino_id" required>
                 {% for treino in treinos %}
@@ -127,12 +126,13 @@
         </form>
     </div>
 
-    <!-- Exercício 5 -->
+    <!-- Exercício 5: Leg press 45° -->
     <div class="exercise-box-custom">
-        <img src="{% static 'images/images/Leg45.jpg' %}" alt="Leg 45">
+        <img src="{% static 'images/images/leg45.jpg' %}" alt="Leg press 45°">
         <h3>Leg press 45°</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Leg press 45°">
             <label for="treino5">Selecione o Treino:</label>
             <select id="treino5" name="treino_id" required>
                 {% for treino in treinos %}
@@ -150,12 +150,13 @@
         </form>
     </div>
 
-    <!-- Exercício 6 -->
+    <!-- Exercício 6: Tríceps testa -->
     <div class="exercise-box-custom">
-        <img src="{% static 'images/images/triceps-testa.jpg' %}" alt="Triceps testa">
+        <img src="{% static 'images/images/triceps-testa.jpg' %}" alt="Tríceps testa">
         <h3>Tríceps testa</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Tríceps testa">
             <label for="treino6">Selecione o Treino:</label>
             <select id="treino6" name="treino_id" required>
                 {% for treino in treinos %}
@@ -173,12 +174,13 @@
         </form>
     </div>
 
-    <!-- Exercício 7 -->
+    <!-- Exercício 7: Cadeira extensora -->
     <div class="exercise-box-custom">
-        <img src="{% static 'images/images/cadeira extensora.jpeg' %}" alt="Cadeira extensora">
+        <img src="{% static 'images/images/cadeira-extensora.jpg' %}" alt="Cadeira extensora">
         <h3>Cadeira extensora</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Cadeira extensora">
             <label for="treino7">Selecione o Treino:</label>
             <select id="treino7" name="treino_id" required>
                 {% for treino in treinos %}
@@ -196,12 +198,13 @@
         </form>
     </div>
 
-    <!-- Exercício 8 -->
+    <!-- Exercício 8: Cadeira flexora -->
     <div class="exercise-box-custom">
-        <img src="{% static 'images/images/cadeira flexora.jpg' %}" alt="Cadeira flexora">
+        <img src="{% static 'images/images/cadeira-flexora.jpg' %}" alt="Cadeira flexora">
         <h3>Cadeira flexora</h3>
         <form method="post">
             {% csrf_token %}
+            <input type="hidden" name="exercicio_nome" value="Cadeira flexora">
             <label for="treino8">Selecione o Treino:</label>
             <select id="treino8" name="treino_id" required>
                 {% for treino in treinos %}
@@ -225,5 +228,5 @@
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
