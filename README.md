@@ -111,7 +111,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     </details>
     <details>
         <summary>Screencast</summary>
-        <p>https://youtu.be/eAx2HIiVcNo</p>
+        <p>https://youtu.be/_T8fp4fx_nA</p>
     </details>
 </details>
 
