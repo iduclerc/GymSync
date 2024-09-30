@@ -67,13 +67,18 @@ def cadastro(request):
     return render(request, 'cadastro.html')
 
 
-def add_exercicio(request, treino_id):
-    treino = get_object_or_404(Treino, id=treino_id)
+def add_exercicio(request, treino_id=None):
+    treinos = Treino.objects.all() 
+    treino_selecionado = get_object_or_404(Treino, id=treino_id) if treino_id else None
 
     if request.method == 'POST':
         nome = request.POST.get('nome')
         repeticoes = request.POST.get('repeticoes')
         carga = request.POST.get('carga')
+        treino_id = request.POST.get('treino_id')  
+
+        # Verifica se o treino foi selecionado corretamente
+        treino = get_object_or_404(Treino, id=treino_id)
 
         # Cria um novo exercício associado ao treino
         exercicio = Exercicios(treino=treino, nome=nome, repeticoes=repeticoes, carga=carga)
@@ -81,7 +86,8 @@ def add_exercicio(request, treino_id):
 
         return redirect('forum')
 
-    return render(request, 'add_exercicio.html', {'treino': treino})
+    return render(request, 'add_exercicio.html', {'treinos': treinos, 'treino_selecionado': treino_selecionado})
+
 
 def servicos(request):
     treinos = Treino.objects.all()
