@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Treino ,Exercicios
-from .forms import ExercicioForm
+
 from django.contrib import messages
 from .models import Usuario
 
