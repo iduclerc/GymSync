@@ -37,9 +37,6 @@
                         <li><a href="{% url 'forum' %}">Página Inicial</a></li>
                     </ul>
                 </li>
-            
-                <!-- SERVIÇOS -->
-                <!-- NOSSA EQUIPE -->
                 <li class="dropdown-custom">
                     <a href="#" class="dropdown-custom-toggle">NOSSA EQUIPE</a>
                     <ul class="dropdown-custom-content">
@@ -51,36 +48,7 @@
     </div>
 </nav>
 
-
-      <div class="fixed-top guy hide-mobile-nav">
-      <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-        <div class="p-4 nav-bg">
-          <h5 class="text-white h4">
-            <ul class="mobile-nav">
-              <li>
-                <input class="form-control mr-sm-2" type="search" placeholder="Search Keyword" aria-label="Search">
-              </li>
-              <li><a href="./index.html">Inicio</a></li>    
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-              </a>
-              </li>
-              <li><a href="./about.html">Sobre nós</a></li>
-            </ul>
-          </h5>
-        </div>
-      </div>
-      <nav class="navbar navbar-dark hj">
-        <h1 class="company-name-mobile">Gym<b id="bold">Sync</b></h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
-          aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""><img src="images/navicon.svg" id="navicon"></span>
-        </button>
-      </nav>
-    </div>
-
-        <div class="containers">
+      <div class="containers">
             <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593519927/Group_60_1_dc6nyh.png" alt="discuss" style="width:100%;">
             <div class="centered">
                 <div class="empty"><div class="line"></div></div> 
@@ -90,17 +58,19 @@
                 </p>
             </div>
         </div>
-       
 
         <h2 class="highlighted-title">Escolha o seu serviço.</h2>
 
-
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+
+                <!-- Slide ativo -->
                 <div class="item active">
                     <div class="caro_cover">
                         <div class="carousel_1">
+                            <!-- Primeira linha de serviços -->
                             <div class="firstrow">
+                                <!-- Crie seu treino -->
                                 <div class="card">
                                     <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/threadmill_W_cdnusi.png" 
                                     class="card-img-top" alt="threadmill">
@@ -108,21 +78,26 @@
                                         <h5 class="card-title">Crie seu treino</h5>
                                         <a href="{% url 'criar_treino' %}" class="btn btn-primary">Aqui</a>
                                     </div>
-                                </div> 
+                                </div>
+                                
+                                <!-- Adicione exercícios ao treino -->
                                 <div class="card">
-                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" class="card-img-top" alt="dumbbells">
+                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
+                                    class="card-img-top" alt="dumbbells">
                                     <div class="card-body">
                                         <h5 class="card-title">Adicione exercícios ao treino</h5>
-                                        {% if treinos.exists %}  <!-- Verifica se há treinos disponíveis -->
-                                            <a href="{% url 'add_exercicio' treinos.first.id %}" class="btn btn-primary">Aqui</a>  <!-- Pega o primeiro treino -->
+                                        {% if treinos.exists %}
+                                            <a href="{% url 'add_exercicio' treinos.first.id %}" class="btn btn-primary">Aqui</a>
                                         {% else %}
                                             <span>Treino indisponível</span>
                                         {% endif %}
                                     </div>
                                 </div>
-                                
-                            </div> 
+                            </div>
+
+                            <!-- Segunda linha de serviços -->
                             <div class="secondrow">
+                                <!-- Excluir Treino -->
                                 <div class="card">
                                     <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361915/kettle_W_maqzia.png" 
                                     class="card-img-top" alt="Kettlebells">
@@ -130,28 +105,30 @@
                                         <h5 class="card-title">Excluir Treino</h5>
                                         <a href="{% url 'lista_treinos' %}" class="btn btn-primary">Aqui</a>
                                     </div>
-                                </div> 
-                            </div>                          
-                            <div class="card">
-                              <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" class="card-img-top" alt="dumbbells">
-                              <div class="card-body">
-                                  <h5 class="card-title">criar rotina</h5>
-                                      <a href="{% url 'criar_rotina'%}" class="btn btn-primary">Aqui</a>  
-                              </div>
-                          </div>
-                        </div> 
+                                </div>
+                                
+                                <!-- Criar Rotina -->
+                                <div class="card">
+                                    <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
+                                    class="card-img-top" alt="Rotina">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Criar Rotina</h5>
+                                        <a href="{% url 'criar_rotina' %}" class="btn btn-primary">Aqui</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        
+
             <!-- Indicadores -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
             </ol>
-        
-            <!-- esquerda e direita -->
+
+            <!-- Controles de navegação -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
                 <span class="sr-only">Previous</span>
@@ -161,10 +138,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        
-        
-        
-        
+
     <footer class="foot hide">
       <nav class="foot-nav">
         <ul class="footnav">
@@ -182,27 +156,6 @@
           </p>
         </div>
       </nav>
-    </footer>
-    <footer class="mobile-foot hd">
-      <div><h1 class="companyname">GymSync</h1></div>
-      <div>
-        <ul class="mobilenav">
-          <li><a href="">Inicio</a></li>
-          <li><a href="">Sobre nós</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul class="mobilenav">
-          <li class="">Melhor jeito de ficar saudável</li>
-          <li>
-            <p class="socialicons margin">
-              <a href="#"><img class="m-0 p-0 px-2 margin" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520615/instagram_kaqojr.svg" alt="instagram logo"></a>
-              <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520385/twitter_stabov.svg" alt="twitter logo"></a>
-              <a href="#"><img class="m-0 p-0 px-2" src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593520560/facebook_y76clf.svg" alt="pinterest logo"></a>
-            </p>
-          </li>
-        </ul>
-      </div>
     </footer>
 
     </div> 

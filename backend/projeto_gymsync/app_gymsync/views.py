@@ -97,16 +97,15 @@ def servicos(request):
     return render(request, 'servicos.html', {'treinos': treinos})
 
 def criar_rotina(request):
+    rotina = None 
     if request.method == 'POST':
         nome_rotina = request.POST.get('nome')
         if nome_rotina:
             rotina = Rotina.objects.create(nome=nome_rotina)
             rotina.save()
-            return redirect('adicionar_treinos', rotina_id=rotina.id)
-        return HttpResponse("Nome da rotina é obrigatório.")
-    
 
-    return render(request, 'criar_rotina.html')
+    return render(request, 'criar_rotina.html', {'rotina': rotina})  
+
 
 def adicionar_treinos(request, rotina_id):
     rotina = Rotina.objects.get(id=rotina_id)

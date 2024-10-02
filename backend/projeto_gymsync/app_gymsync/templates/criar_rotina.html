@@ -1,7 +1,126 @@
-<h1>Criar nova rotina</h1>
-<form method="post">
-    {% csrf_token %}
-    <label for="nome">Nome da Rotina:</label>
-    <input type="text" name="nome" id="nome" required>
-    <button type="submit">Criar Rotina</button>
-</form>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Carregar estáticos do Django -->
+    {% load static %}
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'app_gymsync/css/adicionar_treinos.css' %}">
+
+    <title>Adicionar Exercícios à Rotina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(55deg, red 50%, black 50%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .form-adicionar-treino .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            background-color: #ff5722;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #e64a19;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <h1 class="page-title">Adicionar Exercícios à Rotina: {{ rotina.nome }}</h1>
+
+        <!-- Formulário para adicionar treino à rotina -->
+        <form method="post" class="form-adicionar-treino">
+            {% csrf_token %}
+            
+            <!-- Seleção de treino -->
+            <div class="form-group">
+                <label for="treino">Selecione o Treino:</label>
+                <select name="treino" id="treino" class="form-control" required>
+                    {% if treinos.exists %}
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="">Nenhum treino disponível</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <!-- Seleção de dia da semana -->
+            <div class="form-group">
+                <label for="dia_semana">Selecione o Dia da Semana:</label>
+                <select name="dia_semana" id="dia_semana" class="form-control" required>
+                    <option value="Segunda-feira">Segunda-feira</option>
+                    <option value="Terça-feira">Terça-feira</option>
+                    <option value="Quarta-feira">Quarta-feira</option>
+                    <option value="Quinta-feira">Quinta-feira</option>
+                    <option value="Sexta-feira">Sexta-feira</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+            </div>
+
+            <!-- Campo para horário -->
+            <div class="form-group">
+                <label for="horario">Horário:</label>
+                <input type="time" name="horario" id="horario" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Adicionar Treino</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" 
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+  </body>
+</html>
