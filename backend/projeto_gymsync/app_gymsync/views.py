@@ -2,11 +2,13 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Treino ,Exercicios
+from .models import Treino ,Exercicios, Rotina, RotinaDia
 
 from django.contrib import messages
 from .models import Usuario
 
+from .models import Rotina, RotinaDia 
+from django.http import HttpResponse
 
 def forum(request):
     treinos = Treino.objects.all()
