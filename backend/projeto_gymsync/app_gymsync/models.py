@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from django.contrib.auth.hashers import make_password
 
+
 DAYS_OF_WEEK = [
     ('MON', 'Monday'),
     ('TUE', 'Tuesday'),
