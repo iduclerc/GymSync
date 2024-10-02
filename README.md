@@ -109,6 +109,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
         <img src="img/Backlog2.jpg" alt="Imagem Backlog">
         <img src="img/Jira2.jpg" alt="Imagem JIRA">
     </details>
+    <details>
+        <summary>Screencast</summary>
+        <p>https://youtu.be/_T8fp4fx_nA</p>
+    </details>
 </details>
 
 <!-- Entrega 3 -->
