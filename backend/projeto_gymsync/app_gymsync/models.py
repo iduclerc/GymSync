@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.contrib.auth.hashers import make_password
-
+from django.contrib.auth.models import User
 
 DAYS_OF_WEEK = [
     ('MON', 'Monday'),
@@ -64,3 +64,4 @@ class RotinaDia(models.Model):
 
     def __str__(self):
         return f'{self.dia_semana} - {self.horario}'
+    

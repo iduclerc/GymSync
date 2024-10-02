@@ -1,0 +1,7 @@
+<h1>Criar nova rotina</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="nome">Nome da Rotina:</label>
+    <input type="text" name="nome" id="nome" required>
+    <button type="submit">Criar Rotina</button>
+</form>

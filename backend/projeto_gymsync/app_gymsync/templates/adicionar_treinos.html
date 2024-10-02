@@ -1,0 +1,41 @@
+<h1>Adicionar treinos para a rotina: {{ rotina.nome }}</h1>
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="treino">Selecione o Treino:</label>
+    <select name="treino" id="treino">
+        {% for treino in treinos %}
+        <option value="{{ treino.id }}">{{ treino.nome }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="dia_semana">Selecione o Dia da Semana:</label>
+    <select name="dia_semana" id="dia_semana">
+        <option value="MON">Monday</option>
+        <option value="TUE">Tuesday</option>
+        <option value="WED">Wednesday</option>
+        <option value="THU">Thursday</option>
+        <option value="FRI">Friday</option>
+        <option value="SAT">Saturday</option>
+        <option value="SUN">Sunday</option>
+    </select>
+
+    <label for="horario">Horário:</label>
+    <input type="time" name="horario" id="horario" required>
+
+    <button type="submit">Adicionar Treino</button>
+</form>
+
+<!-- Botão para redirecionar o usuário para a página inicial -->
+<form action="{% url 'forum' %}" method="get" style="margin-top: 20px;">
+    <button type="submit">Voltar para Home</button>
+</form>

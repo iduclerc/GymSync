@@ -25,4 +25,8 @@ urlpatterns = [
     
     # Página de serviços
     path('servicos/', views.servicos, name='servicos'),  # Nova rota para a página de serviços
+    
+    path('criar_rotina/', views.criar_rotina, name='criar_rotina'),
+    
+    path('rotina/<int:rotina_id>/adicionar_treinos/', views.adicionar_treinos, name='adicionar_treinos'),
 ]

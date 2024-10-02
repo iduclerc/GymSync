@@ -7,8 +7,9 @@ from .models import Treino ,Exercicios
 from django.contrib import messages
 from .models import Usuario
 
-from .models import Rotina, RotinaDia 
+from .models import Rotina, RotinaDia
 from django.http import HttpResponse
+from datetime import time
 
 def forum(request):
     treinos = Treino.objects.all()
@@ -94,3 +95,38 @@ def add_exercicio(request, treino_id=None):
 def servicos(request):
     treinos = Treino.objects.all()
     return render(request, 'servicos.html', {'treinos': treinos})
+
+def criar_rotina(request):
+    if request.method == 'POST':
+        nome_rotina = request.POST.get('nome')
+        if nome_rotina:
+            rotina = Rotina.objects.create(nome=nome_rotina)
+            rotina.save()
+            return redirect('adicionar_treinos', rotina_id=rotina.id)
+        return HttpResponse("Nome da rotina é obrigatório.")
+    
+
+    return render(request, 'criar_rotina.html')
+
+def adicionar_treinos(request, rotina_id):
+    rotina = Rotina.objects.get(id=rotina_id)
+    treinos = Treino.objects.all()
+    
+    if request.method == 'POST':
+        treino_id = request.POST.get('treino')
+        dia_semana = request.POST.get('dia_semana')
+        horario_str = request.POST.get('horario')
+
+        # Validando entrada de horário
+        try:
+            horario = time.fromisoformat(horario_str)
+        except ValueError:
+            return HttpResponse("Formato de horário inválido.")
+
+        treino = Treino.objects.get(id=treino_id)
+        RotinaDia.objects.create(rotina=rotina, treino=treino, dia_semana=dia_semana, horario=horario)
+        
+        
+        return redirect('adicionar_treinos', rotina_id=rotina.id)
+
+    return render(request, 'adicionar_treinos.html', {'rotina': rotina, 'treinos': treinos})
