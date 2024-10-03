@@ -6,7 +6,7 @@ from .models import Treino ,Exercicios
 
 from django.contrib import messages
 from .models import Usuario
-
+from .models import EditarTreino 
 from .models import Rotina, RotinaDia
 from django.http import HttpResponse
 from datetime import time
@@ -129,3 +129,21 @@ def adicionar_treinos(request, rotina_id):
         return redirect('adicionar_treinos', rotina_id=rotina.id)
 
     return render(request, 'adicionar_treinos.html', {'rotina': rotina, 'treinos': treinos})
+
+def editar_treino(request, treino_id):
+    treino = get_object_or_404(EditarTreino, pk=treino_id)  
+    
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        descricao = request.POST.get('descricao')
+        exercicios = request.POST.get('exercicios')
+        
+        treino.nome = nome
+        treino.descricao = descricao
+        treino.exercicios = exercicios
+        treino.save()
+        
+        return redirect('detalhes_treino', treino_id=treino.id)  # Redireciona após salvar as mudanças
+    
+    # Exibe o formulário de edição para o método GET
+    return render(request, 'editar_treino.html', {'treino': treino})

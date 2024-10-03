@@ -65,3 +65,12 @@ class RotinaDia(models.Model):
     def __str__(self):
         return f'{self.dia_semana} - {self.horario}'
     
+class EditarTreino(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField(blank=True)
+    exercicios = models.TextField()  
+
+    def __str__(self):
+        return self.nome
+
+    

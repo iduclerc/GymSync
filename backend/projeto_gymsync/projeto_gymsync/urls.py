@@ -29,4 +29,7 @@ urlpatterns = [
     path('criar_rotina/', views.criar_rotina, name='criar_rotina'),
     
     path('rotina/<int:rotina_id>/adicionar_treinos/', views.adicionar_treinos, name='adicionar_treinos'),
+
+    path('treino/<int:treino_id>/editar/', views.editar_treino, name='editar_treino')
+
 ]
