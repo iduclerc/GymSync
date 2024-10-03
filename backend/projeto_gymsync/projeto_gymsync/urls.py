@@ -29,4 +29,15 @@ urlpatterns = [
     path('forum/add_exercicio/',views.add_exercicio,name='add_exercicio'),
     path('excluir_treino/<int:treino_id>/', views.excluir_treino, name='excluir_treino'),
     path('cadastro/', views.cadastro, name='cadastro'),
+     path('treino/<int:treino_id>/add_exercicio/', views.add_exercicio, name='add_exercicio'),
+    
+    # Página de serviços
+    path('servicos/', views.servicos, name='servicos'),  # Nova rota para a página de serviços
+    
+    path('criar_rotina/', views.criar_rotina, name='criar_rotina'),
+    
+    path('rotina/<int:rotina_id>/adicionar_treinos/', views.adicionar_treinos, name='adicionar_treinos'),
+    path('treino/<int:treino_id>/editar/', views.editar_treino, name='editar_treino'),
+    
+    path('login/', views.login_view, name='login'),
  ]
