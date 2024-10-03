@@ -32,17 +32,14 @@ jobs:
 
       - name: Cleaning testing files
         run: |
-          cd GymSync/
           rm db.sqlite3
           rm .env
           cd ..
 
       - name: Zip artifact for deployment
         run: |
-          cd GymSync/
           zip release.zip ./* -r
-          cd ..
-          mv GymSync/release.zip .
+
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
