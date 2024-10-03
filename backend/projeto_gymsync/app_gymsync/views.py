@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Treino ,Exercicios
+from django.contrib.auth.hashers import check_password
 
 from django.contrib import messages
 from .models import Usuario
@@ -68,6 +69,27 @@ def cadastro(request):
         return redirect('forum')
 
     return render(request, 'cadastro.html')
+
+def login_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('senha')  # Certifique-se de que o campo de senha no formulário é "senha"
+        
+        try:
+            # Busca o usuário pelo email
+            usuario = Usuario.objects.get(email=email)
+            
+            # Verifica se a senha está correta
+            if check_password(password, usuario.senha):
+                # Se a senha estiver correta, faça login
+                request.session['usuario_id'] = usuario.id  # Armazenando ID do usuário na sessão
+                return redirect('home')  # Redireciona para a página inicial
+            else:
+                messages.error(request, 'Email ou senha inválidos.')
+        except Usuario.DoesNotExist:
+            messages.error(request, 'Email ou senha inválidos.')
+
+    return render(request, 'login.html')
 
 
 def add_exercicio(request, treino_id=None):

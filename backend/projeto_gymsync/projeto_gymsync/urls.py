@@ -30,6 +30,8 @@ urlpatterns = [
     
     path('rotina/<int:rotina_id>/adicionar_treinos/', views.adicionar_treinos, name='adicionar_treinos'),
 
-    path('treino/<int:treino_id>/editar/', views.editar_treino, name='editar_treino')
+    path('treino/<int:treino_id>/editar/', views.editar_treino, name='editar_treino'),
+    
+    path('login/', views.login_view, name='login'),
 
 ]
