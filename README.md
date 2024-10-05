@@ -107,7 +107,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
         <h3>Print do quadro e backlog (JIRA):</h3>
         <br>
         <img src="img/Backlog2.jpg" alt="Imagem Backlog">
-        <img src="img/Jira2.jpg" alt="Imagem JIRA">
+        <img src="img/jira 2 c.png" alt="Imagem JIRA">
     </details>
     <details>
         <summary>Screencast</summary>
