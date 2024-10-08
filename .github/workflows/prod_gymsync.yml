@@ -11,43 +11,44 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     
+      # Faz o checkout do repositório
       - uses: actions/checkout@v4
 
-     
+      # Configura a versão do Python
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-     
+      # Cria e ativa o ambiente virtual
       - name: Create and start virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
 
+      # Instala as dependências do projeto
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-     
+      # Limpa arquivos de teste, se existirem
       - name: Clean up testing files (if they exist)
         run: |
           [ -f db.sqlite3 ] && rm db.sqlite3 || echo "db.sqlite3 not found, skipping"
           [ -f .env ] && rm .env || echo ".env not found, skipping"
 
-    
+      # Zipa o artefato para o deploy
       - name: Zip artifact for deployment
         run: |
           zip release.zip ./* -r
 
-
+      # Faz upload do artefato para o próximo job
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
           name: python-app
           path: release.zip
 
-
+  # Job de deploy
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -55,29 +56,29 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write  
+      id-token: write  # Necessário para gerar o JWT
 
     steps:
-
+      # Baixa o artefato gerado no job de build
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: python-app
 
-
+      # Descompacta o artefato
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-
+      # Faz login no Azure com o Service Principal
       - name: Login to Azure
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}  # Verifique se está correto
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
           auth-type: 'SERVICE_PRINCIPAL'
 
-
+      # Deploy para o Azure App Service
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
