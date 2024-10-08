@@ -35,7 +35,6 @@ jobs:
         run: |
           [ -f db.sqlite3 ] && rm db.sqlite3 || echo "db.sqlite3 not found, skipping"
           [ -f .env ] && rm .env || echo ".env not found, skipping"
-          cd ..
 
       # Zipa o artefato para o deploy
       - name: Zip artifact for deployment
@@ -47,9 +46,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: |
-            release.zip
-            !venv/
+          path: release.zip
 
   # Job de deploy
   deploy:
@@ -59,7 +56,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write # Necessário para gerar o JWT
+      id-token: write  # Necessário para gerar o JWT
 
     steps:
       # Baixa o artefato gerado no job de build
@@ -79,7 +76,7 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-          auth-type: 'SERVICE_PRINCIPAL'  # Aqui está o auth-type correto
+          auth-type: 'SERVICE_PRINCIPAL'  # Autenticação correta
 
       # Deploy para o Azure App Service
       - name: 'Deploy to Azure Web App'
