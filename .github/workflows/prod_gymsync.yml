@@ -1,4 +1,8 @@
-name: Build and deploy Python app to Azure Web App - gymsync
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
+
+name: Build and deploy Python app to Azure Web App - grupofortisfds
 
 on:
   push:
@@ -11,44 +15,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Faz o checkout do repositório
       - uses: actions/checkout@v4
 
-      # Configura a versão do Python
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.11'
 
-      # Cria e ativa o ambiente virtual
       - name: Create and start virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
-
-      # Instala as dependências do projeto
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # Limpa arquivos de teste, se existirem
-      - name: Clean up testing files (if they exist)
+      - name: Cleaning testing files
         run: |
-          [ -f db.sqlite3 ] && rm db.sqlite3 || echo "db.sqlite3 not found, skipping"
-          [ -f .env ] && rm .env || echo ".env not found, skipping"
+          rm .env
+          cd ..
 
-      # Zipa o artefato para o deploy
       - name: Zip artifact for deployment
         run: |
           zip release.zip ./* -r
+        
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
-      # Faz upload do artefato para o próximo job
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
+
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: release.zip
+          path: |
+            release.zip
+            !venv/
 
-  # Job de deploy
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -56,32 +59,29 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write  # Necessário para gerar o JWT
+      id-token: write #This is required for requesting the JWT
 
     steps:
-      # Baixa o artefato gerado no job de build
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: python-app
 
-      # Descompacta o artefato
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      # Faz login no Azure com o Service Principal
+      
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-          auth-type: 'SERVICE_PRINCIPAL'
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7366D16BB2B544F2BA4B42BFA05C418C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6BE86CDE3FB348C0BCA2FD7541BC38B8}}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1C271C38C159451CAAE4E247AA9389E8 }}
 
-      # Deploy para o Azure App Service
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'gymsync'
           slot-name: 'Production'
+          
