@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Faz o checkout do repositório
+
       - uses: actions/checkout@v4
 
       # Configura a versão do Python
