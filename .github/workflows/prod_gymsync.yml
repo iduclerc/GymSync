@@ -79,7 +79,6 @@ jobs:
           client-secret: ${{ secrets.AZUREAPPSERVICE_CLIENTSECRET }}
           auth-type: 'SERVICE_PRINCIPAL'
 
-      # Deploy para o Azure App Service
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
