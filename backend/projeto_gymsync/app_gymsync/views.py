@@ -24,10 +24,15 @@ def criar_treino(request):
         numero_series = request.POST.get('numero_series')
         agrupamento_muscular = request.POST.get('agrupamento_muscular')
 
+        if not nome or not numero_series or not agrupamento_muscular:
+            return render(request, 'criar_treino.html', {
+                'error': 'Preencha todos os campos corretamente'
+            })
+
         # Criar o objeto Treino e salvar no banco de dados
         treino = Treino(nome=nome, numero_series=numero_series, agrupamento_muscular=agrupamento_muscular)
         treino.save()
-                                                                                                                    
+                                                                                                          
         # Redirecionar para uma página de sucesso (ou outra página que você preferir)
         return redirect('forum') #tem que retornar a pagina para adicionar os exercios
 
