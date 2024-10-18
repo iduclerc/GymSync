@@ -28,10 +28,28 @@
         <span class="title-part2"> Exercício</span>
     </h2>
 
+    <!-- Filtro por Agrupamento Muscular -->
+    <form method="POST" class="form-inline mb-4" action="#">
+        <label for="filtro" class="mr-2">Filtrar por Agrupamento Muscular:</label>
+        <select id="filtro" class="form-control mr-2" onchange="filtrarExercicios()">
+            <option value="">Todos</option>
+            <option value="Peito">Peito</option>
+            <option value="Costas">Costas</option>
+            <option value="Pernas">Pernas</option>
+            <option value="Ombros">Ombros</option>
+            <option value="Triceps">Triceps</option>
+            <option value="Biceps">Biceps</option>
+        </select>
+        <button type="button" class="btn btn-primary" onclick="filtrarExercicios()">Filtrar</button>
+    </form>
+
     <!-- Cartões de Exercícios -->
 
+    <div class="container">
+        <div class="row">
+    
     <!-- Exercício 1: Supino reto -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Peito">
         <img src="{% static 'images/images/supino-reto.jpg' %}" alt="Supino reto">
         <h3>Supino reto</h3>
         <form method="post">
@@ -42,6 +60,7 @@
                 {% for treino in treinos %}
                     <option value="{{ treino.id }}">{{ treino.nome }}</option>
                 {% endfor %}
+                
             </select>
 
             <label for="repeticoes1">Número de Repetições:</label>
@@ -55,8 +74,8 @@
     </div>
 
     <!-- Exercício 2: Levantamento terra -->
-    <div class="exercise-box-custom">
-        <img src="{% static 'images\images\levantamentoterra.jpeg' %}" alt="Levantamento Terra">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Costas">
+        <img src="{% static 'images/images/levantamentoterra.jpeg' %}" alt="Levantamento Terra">
         <h3>Levantamento terra</h3>
         <form method="post">
             {% csrf_token %}
@@ -79,7 +98,7 @@
     </div>
 
     <!-- Exercício 3: Rosca direta -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Biceps">
         <img src="{% static 'images/images/rosca-direta.jpg' %}" alt="Rosca direta">
         <h3>Rosca direta</h3>
         <form method="post">
@@ -103,7 +122,7 @@
     </div>
 
     <!-- Exercício 4: Desenvolvimento lateral -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Ombros">
         <img src="{% static 'images\images\desenvolvimentolatel.png' %}" alt="Desenvolvimento lateral">
         <h3>Desenvolvimento lateral</h3>
         <form method="post">
@@ -127,7 +146,7 @@
     </div>
 
     <!-- Exercício 5: Leg press 45° -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Pernas">
         <img src="{% static 'images/images/leg45.jpg' %}" alt="Leg press 45°">
         <h3>Leg press 45°</h3>
         <form method="post">
@@ -151,7 +170,7 @@
     </div>
 
     <!-- Exercício 6: Tríceps testa -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Triceps">
         <img src="{% static 'images/images/triceps-testa.jpg' %}" alt="Tríceps testa">
         <h3>Tríceps testa</h3>
         <form method="post">
@@ -175,7 +194,7 @@
     </div>
 
     <!-- Exercício 7: Cadeira extensora -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Pernas">
         <img src="{% static 'images\images\cadeiraextensora.jpeg' %}" alt="Cadeira extensora">
         <h3>Cadeira extensora</h3>
         <form method="post">
@@ -199,7 +218,7 @@
     </div>
 
     <!-- Exercício 8: Cadeira flexora -->
-    <div class="exercise-box-custom">
+    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Pernas">
         <img src="{% static 'images/images/cadeiraflexora.jpg' %}" alt="Cadeira flexora">
         <h3>Cadeira flexora</h3>
         <form method="post">
@@ -221,6 +240,26 @@
             <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
         </form>
     </div>
+</div>
+</div>
+
+    <script>
+        function filtrarExercicios() {
+            var filtro = document.getElementById("filtro").value;
+            var exercicios = document.querySelectorAll(".exercise-box-custom");
+
+            exercicios.forEach(function(exercicio) {
+                if (filtro === "" || exercicio.getAttribute("data-grupo") === filtro) {
+                    exercicio.style.display = "block"; // Mostra o exercício
+                } else {
+                    exercicio.style.display = "none"; // Esconde o exercício
+                }
+            });
+        }
+
+        // Chamar a função no carregamento da página para garantir que o estado inicial esteja correto
+        window.onload = filtrarExercicios;
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

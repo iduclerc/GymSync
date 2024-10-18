@@ -97,26 +97,33 @@ def login_view(request):
     return render(request, 'login.html')
 
 
-def add_exercicio(request, treino_id=None):
-    treinos = Treino.objects.all()
-    treino_selecionado = get_object_or_404(Treino, id=treino_id) if treino_id else None
+def add_exercicio(request, treino_id):
+    treino = get_object_or_404(Treino, id=treino_id)  # Obtém o treino pelo ID
+    filtro_selecionado = request.POST.get('filtro', '')
 
-    if request.method == 'POST':
-        nome = request.POST.get('exercicio_nome')  # Nome do exercício já predefinido no form
+    # Filtra os exercícios de acordo com o agrupamento muscular selecionado
+    if filtro_selecionado:
+        exercicios = Exercicios.objects.filter(treino=treino, nome__icontains=filtro_selecionado)
+    else:
+        exercicios = Exercicios.objects.filter(treino=treino)
+
+    if request.method == 'POST' and 'exercicio_nome' in request.POST:
+        nome = request.POST.get('exercicio_nome')
         repeticoes = request.POST.get('repeticoes')
         carga = request.POST.get('carga')
-        treino_id = request.POST.get('treino_id')
 
-        # Verifica se o treino foi selecionado corretamente
-        treino = get_object_or_404(Treino, id=treino_id)
+        # Criar e salvar o exercício
+        Exercicios.objects.create(
+            nome=nome,
+            treino=treino,
+            repeticoes=repeticoes,
+            carga=carga
+        )
+        return redirect('pagina_de_sucesso')  # Ajuste para redirecionar conforme necessário
 
-        # Cria um novo exercício associado ao treino
-        exercicio = Exercicios(treino=treino, nome=nome, repeticoes=repeticoes, carga=carga)
-        exercicio.save()
-
-        return redirect('forum')
-
-    return render(request, 'add_exercicio.html', {'treinos': treinos, 'treino_selecionado': treino_selecionado})
+    # Renderiza a página com o treino selecionado e os exercícios filtrados
+    treinos = Treino.objects.all()
+    return render(request, 'add_exercicio.html', {'treinos': treinos, 'treino': treino, 'exercicios': exercicios, 'filtro_selecionado': filtro_selecionado})
 
 
 def servicos(request):
