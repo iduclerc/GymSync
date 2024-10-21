@@ -1,15 +1,19 @@
+body {
+    background: linear-gradient(45deg, #000, #FF6934);
+}
+
 .exercise-box-custom {
     position: relative;
-    width: 300px;
-    margin: 35px;
+    max-width: 300px;
+    margin: 10px;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
     background-color: #f9f9f9;
     display: inline-block;
     vertical-align: top;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); 
-    transition: transform 0.3s ease; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
 }
 
 .exercise-box-custom:hover {
@@ -35,7 +39,6 @@
 .exercise-box-custom input,
 .exercise-box-custom select,
 .exercise-box-custom button {
-    pointer-events: auto;
     background-color: white;
     color: black;
     width: 100%;
@@ -43,22 +46,39 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
 .exercise-box-custom button {
     background-color: #FF6347;
     color: white;
-    border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .exercise-box-custom button:hover {
-    background-color: #FF4500; 
-    transform: scale(1.05); 
+    background-color: #FF4500;
+    transform: scale(1.05);
 }
 
+#exercise-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+@media (max-width: 768px) {
+    .exercise-box-custom {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .exercise-box-custom {
+        width: 33.33%;
+    }
+}
 
 .topnav {
     background-color: #333;
@@ -81,23 +101,9 @@
 }
 
 .topnav a.active {
-    background-color: #FF6347; 
+    background-color: #FF6347;
     color: white;
 }
-
-.container-fluid {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-
-@media (max-width: 768px) {
-    .exercise-box-custom {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
 
 .centered-title {
     font-size: 36px;
@@ -108,7 +114,7 @@
     padding: 20px;
     background: linear-gradient(35deg, red 50%, black 50%);
     border-radius: 10px;
-    width: 60%; 
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -123,8 +129,4 @@
 .title-part2 {
     color: white;
     font-weight: bold;
-}
-body{
-    background: linear-gradient(45deg, #000, #FF6934);
-
 }

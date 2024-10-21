@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Treino: {{ treino.nome }}</title>
+    <!-- Carregar estáticos do Django -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_gymsync/css/detalhes_treino.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Detalhes do Treino: {{ treino.nome }}</h1>
+        <p><strong>Agrupamento muscular:</strong> {{ treino.agrupamento_muscular }}</p>
+        <p><strong>Número de séries:</strong> {{ treino.numero_series }}</p>
+
+        <h2>Exercícios</h2>
+        <ul>
+            {% for exercicio in exercicios %}
+                <li>
+                    <strong>{{ exercicio.nome }}</strong> - 
+                    {{ exercicio.repeticoes }} repetições, {{ exercicio.carga }} kg
+
+                    <div class="cronometro-container">
+                        <h4>Cronômetro de Descanso</h4>
+                        <span id="timer-{{ exercicio.id }}" class="timer-display">00:00</span>
+                        <button class="start-btn" data-exercicio-id="{{ exercicio.id }}">Iniciar</button>
+                        <button class="stop-btn" data-exercicio-id="{{ exercicio.id }}" disabled>Parar</button>
+                        <button class="reset-btn" data-exercicio-id="{{ exercicio.id }}">Reiniciar</button>
+                    </div>
+                </li>
+            {% empty %}
+                <li>Nenhum exercício associado a este treino.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        function startCronometro(exercicioId) {
+            const timerDisplay = document.getElementById(`timer-${exercicioId}`);
+            let seconds = 0;
+            const startButton = document.querySelector(`.start-btn[data-exercicio-id="${exercicioId}"]`);
+            const stopButton = document.querySelector(`.stop-btn[data-exercicio-id="${exercicioId}"]`);
+
+            let intervalId = setInterval(() => {
+                seconds++;
+                timerDisplay.textContent = formatTime(seconds);
+            }, 1000);
+
+            startButton.disabled = true;
+            stopButton.disabled = false;
+
+            stopButton.addEventListener('click', () => {
+                clearInterval(intervalId);
+                stopButton.disabled = true;
+                startButton.disabled = false;
+            });
+
+            timerDisplay.dataset.intervalId = intervalId;
+        }
+
+        function resetCronometro(exercicioId) {
+            const timerDisplay = document.getElementById(`timer-${exercicioId}`);
+            clearInterval(timerDisplay.dataset.intervalId);
+            timerDisplay.textContent = "00:00";
+            document.querySelector(`.start-btn[data-exercicio-id="${exercicioId}"]`).disabled = false;
+            document.querySelector(`.stop-btn[data-exercicio-id="${exercicioId}"]`).disabled = true;
+        }
+
+        document.querySelectorAll('.start-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const exercicioId = button.getAttribute('data-exercicio-id');
+                startCronometro(exercicioId);
+            });
+        });
+
+        document.querySelectorAll('.reset-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const exercicioId = button.getAttribute('data-exercicio-id');
+                resetCronometro(exercicioId);
+            });
+        });
+    </script>
+</body>
+</html>

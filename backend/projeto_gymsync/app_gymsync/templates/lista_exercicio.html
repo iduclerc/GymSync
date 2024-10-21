@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios</title>
+    <!-- Carregar estáticos do Django -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_gymsync/css/lista_exercicios.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Exercícios Da Comunidade</h1>
+
+        <!-- Verifica se existem exercícios -->
+        {% if exercicios %}
+            <ul class="exercicio-list">
+                {% for exercicio in exercicios %}
+                    <li class="exercicio-item">
+                        <!-- Link para redirecionar ao treino relacionado -->
+                        <a href="{% url 'detalhes_treino' exercicio.treino.id %}">
+                            <h2>{{ exercicio.nome }}</h2>
+                        </a>
+                        <p><strong>Repetições:</strong> {{ exercicio.repeticoes }}</p>
+                        <p><strong>Carga:</strong> {{ exercicio.carga }} kg</p>
+                        <p><strong>Treino Associado:</strong> {{ exercicio.treino.nome }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhum exercício disponível no momento.</p>
+        {% endif %}
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(".exercicio-item").each(function(i){
+                $(this).delay(i*100).fadeIn(1000);
+            });
+        });
+    </script>
+    
+</body>
+</html>

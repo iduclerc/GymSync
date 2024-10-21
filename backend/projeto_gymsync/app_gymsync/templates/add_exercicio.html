@@ -11,7 +11,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="{% static 'app_gymsync/css/add_exercicio.css' %}">
@@ -23,226 +22,255 @@
 </head>
 <body>
 
+
+    <!-- Título Centralizado -->
     <h2 class="centered-title">
-        <span class="title-part1">Adicionar </span> 
-        <span class="title-part2"> Exercício</span>
+        <span class="title-part1">Adicionar</span> 
+        <span class="title-part2">Exercício</span>
     </h2>
 
     <!-- Filtro por Agrupamento Muscular -->
-    <form method="POST" class="form-inline mb-4" action="#">
-        <label for="filtro" class="mr-2">Filtrar por Agrupamento Muscular:</label>
-        <select id="filtro" class="form-control mr-2" onchange="filtrarExercicios()">
-            <option value="">Todos</option>
-            <option value="Peito">Peito</option>
-            <option value="Costas">Costas</option>
-            <option value="Pernas">Pernas</option>
-            <option value="Ombros">Ombros</option>
-            <option value="Triceps">Triceps</option>
-            <option value="Biceps">Biceps</option>
-        </select>
-        <button type="button" class="btn btn-primary" onclick="filtrarExercicios()">Filtrar</button>
-    </form>
+    <div class="container mb-5">
+        <form method="POST" class="form-inline justify-content-center">
+            <label for="filtro" class="mr-3">Filtrar por Agrupamento Muscular:</label>
+            <select id="filtro" class="form-control mr-3" onchange="filtrarExercicios()">
+                <option value="">Todos</option>
+                <option value="Peito">Peito</option>
+                <option value="Costas">Costas</option>
+                <option value="Pernas">Pernas</option>
+                <option value="Ombros">Ombros</option>
+                <option value="Triceps">Triceps</option>
+                <option value="Biceps">Biceps</option>
+            </select>
+            <button type="button" class="btn btn-primary" onclick="filtrarExercicios()">Filtrar</button>
+        </form>
+    </div>
 
     <!-- Cartões de Exercícios -->
-
     <div class="container">
-        <div class="row">
-    
-    <!-- Exercício 1: Supino reto -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Peito">
-        <img src="{% static 'images/images/supino-reto.jpg' %}" alt="Supino reto">
-        <h3>Supino reto</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Supino reto">
-            <label for="treino1">Selecione o Treino:</label>
-            <select id="treino1" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-                
-            </select>
+        <div class="row" id="exercise-container">
+            <!-- Exercício 1: Supino reto -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Peito">
+                <img src="{% static 'images/images/supino-reto.jpg' %}" alt="Supino reto">
+                <h3>Supino reto</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Supino reto">
+                    <label for="treino1">Selecione o Treino:</label>
+                    <select id="treino1" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
 
-            <label for="repeticoes1">Número de Repetições:</label>
-            <input type="number" id="repeticoes1" name="repeticoes" required>
+                    <label for="repeticoes1">Número de Repetições:</label>
+                    <input type="number" id="repeticoes1" name="repeticoes" class="form-control mb-2" required>
 
-            <label for="carga1">Carga (em kg):</label>
-            <input type="number" id="carga1" name="carga" required>
+                    <label for="carga1">Carga (em kg):</label>
+                    <input type="number" id="carga1" name="carga" class="form-control mb-2" required>
 
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 2: Levantamento terra -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Costas">
+                <img src="{% static 'images/images/levantamentoterra.jpeg' %}" alt="Levantamento Terra">
+                <h3>Levantamento terra</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Levantamento terra">
+                    <label for="treino2">Selecione o Treino:</label>
+                    <select id="treino2" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes2">Número de Repetições:</label>
+                    <input type="number" id="repeticoes2" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga2">Carga (em kg):</label>
+                    <input type="number" id="carga2" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 3: Rosca direta -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Biceps">
+                <img src="{% static 'images/images/rosca-direta.jpg' %}" alt="Rosca direta">
+                <h3>Rosca direta</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Rosca direta">
+                    <label for="treino3">Selecione o Treino:</label>
+                    <select id="treino3" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes3">Número de Repetições:</label>
+                    <input type="number" id="repeticoes3" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga3">Carga (em kg):</label>
+                    <input type="number" id="carga3" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 4: Desenvolvimento lateral -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Ombros">
+                <img src="{% static 'images/images/desenvolvimentolatel.png' %}" alt="Desenvolvimento lateral">
+                <h3>Desenvolvimento lateral</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Desenvolvimento lateral">
+                    <label for="treino4">Selecione o Treino:</label>
+                    <select id="treino4" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes4">Número de Repetições:</label>
+                    <input type="number" id="repeticoes4" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga4">Carga (em kg):</label>
+                    <input type="number" id="carga4" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 5: Leg press 45° -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Pernas">
+                <img src="{% static 'images/images/leg45.jpg' %}" alt="Leg press 45°">
+                <h3>Leg press 45°</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Leg press 45°">
+                    <label for="treino5">Selecione o Treino:</label>
+                    <select id="treino5" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes5">Número de Repetições:</label>
+                    <input type="number" id="repeticoes5" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga5">Carga (em kg):</label>
+                    <input type="number" id="carga5" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 6: Tríceps testa -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Triceps">
+                <img src="{% static 'images/images/triceps-testa.jpg' %}" alt="Tríceps testa">
+                <h3>Tríceps testa</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Tríceps testa">
+                    <label for="treino6">Selecione o Treino:</label>
+                    <select id="treino6" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes6">Número de Repetições:</label>
+                    <input type="number" id="repeticoes6" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga6">Carga (em kg):</label>
+                    <input type="number" id="carga6" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 7: Cadeira extensora -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Pernas">
+                <img src="{% static 'images/images/cadeiraextensora.jpeg' %}" alt="Cadeira extensora">
+                <h3>Cadeira extensora</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Cadeira extensora">
+                    <label for="treino7">Selecione o Treino:</label>
+                    <select id="treino7" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes7">Número de Repetições:</label>
+                    <input type="number" id="repeticoes7" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga7">Carga (em kg):</label>
+                    <input type="number" id="carga7" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+            <!-- Exercício 8: Cadeira flexora -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Pernas">
+                <img src="{% static 'images/images/cadeiraflexora.jpg' %}" alt="Cadeira flexora">
+                <h3>Cadeira flexora</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="Cadeira flexora">
+                    <label for="treino8">Selecione o Treino:</label>
+                    <select id="treino8" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes8">Número de Repetições:</label>
+                    <input type="number" id="repeticoes8" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga8">Carga (em kg):</label>
+                    <input type="number" id="carga8" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+             <!-- Exercício 9: Supino Inclinado -->
+            <div class="col-md-4 col-sm-6 mb-4 exercise-box-custom" data-grupo="Peito">
+                <img src="{% static 'images/images/supino_inclinado.jpg' %}" alt="Supino Inclinado">
+                <h3>Supino Inclinado</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="exercicio_nome" value="supino inclinado">
+                    <label for="treino9">Selecione o Treino:</label>
+                    <select id="treino9" name="treino_id" class="form-control mb-2" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <label for="repeticoes8">Número de Repetições:</label>
+                    <input type="number" id="repeticoes9" name="repeticoes" class="form-control mb-2" required>
+
+                    <label for="carga9">Carga (em kg):</label>
+                    <input type="number" id="carga9" name="carga" class="form-control mb-2" required>
+
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                </form>
+            </div>
+
+
+       
+       
+        </div>
     </div>
 
-    <!-- Exercício 2: Levantamento terra -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Costas">
-        <img src="{% static 'images/images/levantamentoterra.jpeg' %}" alt="Levantamento Terra">
-        <h3>Levantamento terra</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Levantamento terra">
-            <label for="treino2">Selecione o Treino:</label>
-            <select id="treino2" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes2">Número de Repetições:</label>
-            <input type="number" id="repeticoes2" name="repeticoes" required>
-
-            <label for="carga2">Carga (em kg):</label>
-            <input type="number" id="carga2" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-
-    <!-- Exercício 3: Rosca direta -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Biceps">
-        <img src="{% static 'images/images/rosca-direta.jpg' %}" alt="Rosca direta">
-        <h3>Rosca direta</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Rosca direta">
-            <label for="treino3">Selecione o Treino:</label>
-            <select id="treino3" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes3">Número de Repetições:</label>
-            <input type="number" id="repeticoes3" name="repeticoes" required>
-
-            <label for="carga3">Carga (em kg):</label>
-            <input type="number" id="carga3" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-
-    <!-- Exercício 4: Desenvolvimento lateral -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Ombros">
-        <img src="{% static 'images\images\desenvolvimentolatel.png' %}" alt="Desenvolvimento lateral">
-        <h3>Desenvolvimento lateral</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Desenvolvimento lateral">
-            <label for="treino4">Selecione o Treino:</label>
-            <select id="treino4" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes4">Número de Repetições:</label>
-            <input type="number" id="repeticoes4" name="repeticoes" required>
-
-            <label for="carga4">Carga (em kg):</label>
-            <input type="number" id="carga4" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-
-    <!-- Exercício 5: Leg press 45° -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Pernas">
-        <img src="{% static 'images/images/leg45.jpg' %}" alt="Leg press 45°">
-        <h3>Leg press 45°</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Leg press 45°">
-            <label for="treino5">Selecione o Treino:</label>
-            <select id="treino5" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes5">Número de Repetições:</label>
-            <input type="number" id="repeticoes5" name="repeticoes" required>
-
-            <label for="carga5">Carga (em kg):</label>
-            <input type="number" id="carga5" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-
-    <!-- Exercício 6: Tríceps testa -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Triceps">
-        <img src="{% static 'images/images/triceps-testa.jpg' %}" alt="Tríceps testa">
-        <h3>Tríceps testa</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Tríceps testa">
-            <label for="treino6">Selecione o Treino:</label>
-            <select id="treino6" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes6">Número de Repetições:</label>
-            <input type="number" id="repeticoes6" name="repeticoes" required>
-
-            <label for="carga6">Carga (em kg):</label>
-            <input type="number" id="carga6" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-
-    <!-- Exercício 7: Cadeira extensora -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Pernas">
-        <img src="{% static 'images\images\cadeiraextensora.jpeg' %}" alt="Cadeira extensora">
-        <h3>Cadeira extensora</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Cadeira extensora">
-            <label for="treino7">Selecione o Treino:</label>
-            <select id="treino7" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes7">Número de Repetições:</label>
-            <input type="number" id="repeticoes7" name="repeticoes" required>
-
-            <label for="carga7">Carga (em kg):</label>
-            <input type="number" id="carga7" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-
-    <!-- Exercício 8: Cadeira flexora -->
-    <div class="col-md-4 mb-4 exercise-box-custom" data-grupo="Pernas">
-        <img src="{% static 'images/images/cadeiraflexora.jpg' %}" alt="Cadeira flexora">
-        <h3>Cadeira flexora</h3>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="exercicio_nome" value="Cadeira flexora">
-            <label for="treino8">Selecione o Treino:</label>
-            <select id="treino8" name="treino_id" required>
-                {% for treino in treinos %}
-                    <option value="{{ treino.id }}">{{ treino.nome }}</option>
-                {% endfor %}
-            </select>
-
-            <label for="repeticoes8">Número de Repetições:</label>
-            <input type="number" id="repeticoes8" name="repeticoes" required>
-
-            <label for="carga8">Carga (em kg):</label>
-            <input type="number" id="carga8" name="carga" required>
-
-            <button type="submit" class="btn btn-primary">Adicionar Exercício</button>
-        </form>
-    </div>
-</div>
-</div>
-
+    <!-- JavaScript para filtrar os exercícios -->
     <script>
         function filtrarExercicios() {
             var filtro = document.getElementById("filtro").value;
@@ -250,14 +278,13 @@
 
             exercicios.forEach(function(exercicio) {
                 if (filtro === "" || exercicio.getAttribute("data-grupo") === filtro) {
-                    exercicio.style.display = "block"; // Mostra o exercício
+                    exercicio.style.display = "block";
                 } else {
-                    exercicio.style.display = "none"; // Esconde o exercício
+                    exercicio.style.display = "none";
                 }
             });
         }
 
-        // Chamar a função no carregamento da página para garantir que o estado inicial esteja correto
         window.onload = filtrarExercicios;
     </script>
 

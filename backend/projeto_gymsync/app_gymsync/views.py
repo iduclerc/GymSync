@@ -169,20 +169,38 @@ def adicionar_treinos(request, rotina_id):
     return render(request, 'adicionar_treinos.html', {'rotina': rotina, 'treinos': treinos})
 
 def editar_treino(request, treino_id):
-    treino = get_object_or_404(EditarTreino, pk=treino_id)  
-    
+    # Obter o treino com base no ID fornecido
+    treino = get_object_or_404(Treino, pk=treino_id)
+
     if request.method == 'POST':
+        # Obter os valores dos campos enviados no formulário
         nome = request.POST.get('nome')
-        descricao = request.POST.get('descricao')
-        exercicios = request.POST.get('exercicios')
-        
+        numero_series = request.POST.get('numero_series')
+        agrupamento_muscular = request.POST.get('agrupamento_muscular')
+
+        # Atualizar os valores do treino
         treino.nome = nome
-        treino.descricao = descricao
-        treino.exercicios = exercicios
+        treino.numero_series = numero_series
+        treino.agrupamento_muscular = agrupamento_muscular
+
+        # Salvar as mudanças no banco de dados
         treino.save()
-        
-        return redirect('detalhes_treino', treino_id=treino.id)  # Redireciona após salvar as mudanças
-    
-    # Exibe o formulário de edição para o método GET
+
+        # Redirecionar para a página de detalhes do treino após salvar
+        return redirect('forum')
+
+    # Renderizar o formulário de edição, preenchendo com os valores atuais do treino
     return render(request, 'editar_treino.html', {'treino': treino})
 
+def detalhes_treino(request, treino_id):
+    # Busca o treino específico pelo ID
+    treino = get_object_or_404(Treino, id=treino_id)
+    exercicios = Exercicios.objects.filter(treino=treino)  # Exercícios relacionados ao treino
+
+    return render(request, 'detalhes_treino.html', {'treino': treino, 'exercicios': exercicios})
+
+
+
+def lista_exercicios(request):
+    exercicios = Exercicios.objects.all()
+    return render(request, 'lista_exercicio.html', {'exercicios': exercicios})
