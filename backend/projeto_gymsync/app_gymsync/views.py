@@ -119,7 +119,7 @@ def add_exercicio(request, treino_id):
             repeticoes=repeticoes,
             carga=carga
         )
-        return redirect('pagina_de_sucesso')  # Ajuste para redirecionar conforme necessário
+        return redirect('forum')  # Ajuste para redirecionar conforme necessário
 
     # Renderiza a página com o treino selecionado e os exercícios filtrados
     treinos = Treino.objects.all()
@@ -130,15 +130,19 @@ def servicos(request):
     treinos = Treino.objects.all()
     return render(request, 'servicos.html', {'treinos': treinos})
 
+from .models import Treino  # Certifique-se de importar o modelo correto
+
 def criar_rotina(request):
     rotina = None 
+    treinos = Treino.objects.all()  # Aqui você busca todos os treinos do banco de dados
     if request.method == 'POST':
         nome_rotina = request.POST.get('nome')
         if nome_rotina:
             rotina = Rotina.objects.create(nome=nome_rotina)
             rotina.save()
 
-    return render(request, 'criar_rotina.html', {'rotina': rotina})  
+    return render(request, 'criar_rotina.html', {'rotina': rotina, 'treinos': treinos})
+
 
 
 def adicionar_treinos(request, rotina_id):
@@ -181,3 +185,4 @@ def editar_treino(request, treino_id):
     
     # Exibe o formulário de edição para o método GET
     return render(request, 'editar_treino.html', {'treino': treino})
+
