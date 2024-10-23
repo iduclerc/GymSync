@@ -120,7 +120,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <summary>Entrega 3</summary>
     <details>
         <summary>Backlog</summary>
-        <h3>Print do quadro e backlog (JIRA):</h3>
+        <h3>Print do quadro da sprint e do backlog (JIRA):</h3>
         <br>
         <img src="img/Backlog3.jpg" alt="Imagem Backlog">
         <img src="img/Sprint3.jpg" alt="Imagem JIRA">
@@ -128,7 +128,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <details>
         <summary>Screencasts</summary>
         <p>Figma: </p>
-        <p>Testes automatizados </p>
+        <p>Testes automatizados: https://youtu.be/SU8br8UstdM</p>
         <p></p>
 </details>
 
