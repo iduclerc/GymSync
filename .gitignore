@@ -1,4 +1,3 @@
-Ambiente Virtual
 venv/
 env/
 
@@ -9,13 +8,12 @@ pycache/
 Arquivos de log
 *.log
 
-Configurações de banco de dados locais
-db.sqlite3
-*.sqlite3
-
 Arquivos de configurações do IDE/editor
 .vscode/
 .idea/
 
 Arquivos de mídia e uploads (se você estiver armazenando no projeto)
 media/
+
+Testes automatizados node.js
+node_modules/
