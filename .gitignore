@@ -1,25 +1,4 @@
-# Sistema
-*.log
-*.pot
-*.pyc
-*.pyo
-*.coverage
-*.cover
-*.mo
-*.py,cover
-*.sqlite3
-
-# Configurações do editor
-.idea/
-.vscode/
-*.sublime-workspace
-*.sublime-project
-
-# Diretórios do sistema operacional
-.DS_Store
-Thumbs.db
-
-# Virtualenv
+Ambiente Virtual
 venv/
 ENV/
 env/
@@ -38,31 +17,3 @@ Arquivos de configurações do IDE/editor
 
 Arquivos de mídia e uploads (se você estiver armazenando no projeto)
 media/
-
-Testes automatizados node.js
-node_modules/
-=======
-# Arquivos de migração
-**/migrations/*
-
-# Diretório estático gerado automaticamente
-staticfiles/
-
-# Diretório media (arquivos carregados pelo usuário)
-media/
-
-# Arquivos de cache
-__pycache__/
-*.py[cod]
-*.so
-
-# Configuração local (se houver)
-local_settings.py
-
-# Arquivos do pytest
-.pytest_cache/
-
-# Arquivos criados pelo sistema
-*.swp
-*.swo
->>>>>>> b3e2ed5a (Update .gitignore)
