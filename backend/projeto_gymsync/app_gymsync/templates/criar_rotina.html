@@ -16,7 +16,7 @@
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="{% static 'app_gymsync/css/adicionar_treinos.css' %}">
 
-    <title>Adicionar Exercícios à Rotina</title>
+    <title>Criar Rotina de Treino</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +43,7 @@
             color: #333;
         }
 
-        .form-adicionar-treino .form-group {
+        .form-group {
             margin-bottom: 20px;
         }
 
@@ -71,12 +71,18 @@
   <body>
 
     <div class="container">
-        <h1 class="page-title">Adicionar Exercícios à Rotina: {{ rotina.nome }}</h1>
+        <h1 class="page-title">Criar Rotina de Treino</h1>
 
-        <!-- Formulário para adicionar treino à rotina -->
+        <!-- Formulário para criar rotina -->
         <form method="post" class="form-adicionar-treino">
             {% csrf_token %}
             
+            <!-- Campo para nome da rotina -->
+            <div class="form-group">
+                <label for="nome">Nome da Rotina:</label>
+                <input type="text" name="nome" id="nome" class="form-control" required>
+            </div>
+
             <!-- Seleção de treino -->
             <div class="form-group">
                 <label for="treino">Selecione o Treino:</label>
@@ -111,7 +117,7 @@
                 <input type="time" name="horario" id="horario" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Adicionar Treino</button>
+            <button type="submit" class="btn btn-primary">Criar Rotina</button>
         </form>
     </div>
 

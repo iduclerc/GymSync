@@ -133,15 +133,30 @@ def servicos(request):
 from .models import Treino  # Certifique-se de importar o modelo correto
 
 def criar_rotina(request):
-    rotina = None 
-    treinos = Treino.objects.all()  # Aqui você busca todos os treinos do banco de dados
+    treinos = Treino.objects.all()  # Busca todos os treinos do banco de dados
+    rotina = None  # Inicializa a variável rotina como None
+
     if request.method == 'POST':
         nome_rotina = request.POST.get('nome')
-        if nome_rotina:
-            rotina = Rotina.objects.create(nome=nome_rotina)
+        treino_id = request.POST.get('treino')  # Obtém o treino selecionado no formulário
+        dia_semana = request.POST.get('dia_semana')  # Obtém o dia da semana do formulário
+        horario = request.POST.get('horario')  # Obtém o horário do formulário
+
+        if nome_rotina and treino_id and dia_semana and horario:
+            # Cria uma nova instância da rotina
+            rotina_principal, created = Rotina.objects.get_or_create(nome=nome_rotina)
+            treino = Treino.objects.get(id=treino_id)  # Busca o treino pelo id
+            # Cria um novo registro de RotinaDia
+            rotina = RotinaDia.objects.create(
+                rotina=rotina_principal,
+                treino=treino,
+                dia_semana=dia_semana,
+                horario=horario
+            )
             rotina.save()
 
     return render(request, 'criar_rotina.html', {'rotina': rotina, 'treinos': treinos})
+
 
 
 
