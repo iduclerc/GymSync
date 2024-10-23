@@ -127,7 +127,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     </details>
     <details>
         <summary>Screencasts</summary>
-        <p>Figma: </p>
+        <p>Figma:  https://youtu.be/6lKPvt8F4c8 </p>
         <p>Testes automatizados: https://youtu.be/SU8br8UstdM</p>
         <p></p>
 </details>
