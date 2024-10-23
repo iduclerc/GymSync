@@ -118,7 +118,18 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <!-- Entrega 3 -->
 <details id="entrega3">
     <summary>Entrega 3</summary>
-    <h3>Entrega 3...</h3>
+    <details>
+        <summary>Backlog</summary>
+        <h3>Print do quadro e backlog (JIRA):</h3>
+        <br>
+        <img src="img/Backlog3.jpg" alt="Imagem Backlog">
+        <img src="img/Sprint3.jpg" alt="Imagem JIRA">
+    </details>
+    <details>
+        <summary>Screencasts</summary>
+        <p>Figma: </p>
+        <p>Testes automatizados </p>
+        <p></p>
 </details>
 
 <!-- Entrega 4 -->
