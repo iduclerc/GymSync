@@ -82,7 +82,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 <details>
     <summary>Links</summary>
-    <p>jira: https://proj2fds.atlassian.net/jira/software/projects/SCRUM/boards/1</p>
+    <p>jira:https://cesar-team-ztgvnfkx.atlassian.net/jira/software/projects/GDF/boards/70/timeline </p>
+   
     <p>youtube: https://youtu.be/eAx2HIiVcNo</p>
     <p>Figma: https://www.figma.com/design/7uzbywBVRUZOanrbKkbBbh/esboço-1?node-id=0-1&node-type=CANVAS&t=T1DQJtKr8ENyUwRv-0</p>
 </details>
