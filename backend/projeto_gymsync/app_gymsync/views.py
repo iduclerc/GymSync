@@ -11,6 +11,9 @@ from .models import EditarTreino
 from .models import Rotina, RotinaDia
 from django.http import HttpResponse
 from datetime import time
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
 
 def forum(request):
     treinos = Treino.objects.all()
@@ -219,3 +222,37 @@ def detalhes_treino(request, treino_id):
 def lista_exercicios(request):
     exercicios = Exercicios.objects.all()
     return render(request, 'lista_exercicio.html', {'exercicios': exercicios})
+
+
+def exportar_treino_view(request):
+    treinos = Treino.objects.all()
+    return render(request, 'exportar_treino.html', {'treinos': treinos})
+
+def exportar_treino_pdf(request):
+    treino_id = request.GET.get('treino_id')
+    treino = get_object_or_404(Treino, id=treino_id)
+    exercicios = Exercicios.objects.filter(treino=treino)
+
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="treino_{treino_id}.pdf"'
+
+    p = canvas.Canvas(response, pagesize=A4)
+    largura, altura = A4
+
+    p.setFont("Helvetica-Bold", 16)
+    p.drawString(100, altura - 50, f"Treino: {treino.nome}")
+
+    p.setFont("Helvetica", 12)
+    y = altura - 100
+    for exercicio in exercicios:
+        p.drawString(50, y, f"Exercício: {exercicio.nome}")
+        p.drawString(200, y, f"Repetições: {exercicio.repeticoes}")
+        p.drawString(350, y, f"Carga: {exercicio.carga}")
+        y -= 30
+        if y < 50:
+            p.showPage()
+            y = altura - 50
+
+    p.showPage()
+    p.save()
+    return response

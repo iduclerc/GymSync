@@ -44,5 +44,7 @@ urlpatterns = [
  
     path('exercicios/', views.lista_exercicios, name='lista_exercicios'),
     path('treino/<int:treino_id>/', views.detalhes_treino, name='detalhes_treino'),
+    path('exportar_treino_pdf/', views.exportar_treino_pdf, name='exportar_treino_pdf'),
+    path('exportar_treino/', views.exportar_treino_view, name='exportar_treino_view'),
 
  ]

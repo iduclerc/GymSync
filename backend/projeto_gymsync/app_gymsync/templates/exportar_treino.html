@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar Treino</title>
+</head>
+<body>
+    <h1>Exportar Treino para PDF</h1>
+    
+    <!-- Formulário de seleção do treino para exportação -->
+    <form action="{% url 'exportar_treino_pdf' %}" method="get" target="_blank">
+        <label for="treino">Selecione o Treino:</label>
+        <select name="treino_id" id="treino" required>
+            {% for treino in treinos %}
+                <option value="{{ treino.id }}">{{ treino.nome }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary">Exportar para PDF</button>
+    </form>
+</body>
+</html>
