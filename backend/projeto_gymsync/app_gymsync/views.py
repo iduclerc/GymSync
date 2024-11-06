@@ -114,13 +114,14 @@ def add_exercicio(request, treino_id):
         nome = request.POST.get('exercicio_nome')
         repeticoes = request.POST.get('repeticoes')
         carga = request.POST.get('carga')
-
+        avaliacao = request.POST.get('rating')  # Captura a avaliação
         # Criar e salvar o exercício
         Exercicios.objects.create(
             nome=nome,
             treino=treino,
             repeticoes=repeticoes,
-            carga=carga
+            carga=carga,
+            avaliacao = avaliacao
         )
         return redirect('forum')  # Ajuste para redirecionar conforme necessário
 
