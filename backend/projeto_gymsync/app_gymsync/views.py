@@ -257,3 +257,35 @@ def exportar_treino_pdf(request):
     p.showPage()
     p.save()
     return response
+
+def calcular_imc_view(request):
+    treinos = None
+    imc = None
+    classificacao = ''
+    
+    if request.method == 'POST':
+        peso = float(request.POST.get('peso'))
+        altura = float(request.POST.get('altura'))
+
+        if altura > 0:  # Evitar divisão por zero
+            imc = round(peso / (altura ** 2), 2)
+
+            # Classificação do IMC e recomendação de treino
+            if imc < 18.5:
+                classificacao = 'Abaixo do peso'
+                treinos = Treino.objects.filter(agrupamento_muscular__icontains='hipertrofia')
+            elif 18.5 <= imc < 24.9:
+                classificacao = 'Peso normal'
+                treinos = Treino.objects.filter(agrupamento_muscular__icontains='manutenção')
+            elif 25 <= imc < 29.9:
+                classificacao = 'Sobrepeso'
+                treinos = Treino.objects.filter(agrupamento_muscular__icontains='perda de peso')
+            else:
+                classificacao = 'Obesidade'
+                treinos = Treino.objects.filter(agrupamento_muscular__icontains='cardio')
+
+    return render(request, 'calcular_imc.html', {
+        'imc': imc,
+        'classificacao': classificacao,
+        'treinos': treinos
+    })

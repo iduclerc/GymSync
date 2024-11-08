@@ -139,6 +139,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
+                             class="card-img-top" alt="Exportar PDF">
+                        <div class="card-body">
+                            <h5 class="card-title">Exportar Treino para PDF</h5>
+                            {% if treinos.exists %}
+                                <a href="{% url 'exportar_treino_view' %}" class="btn btn-success">Exportar</a>
+                            {% else %}
+                                <span>Treino indisponível</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center">
+                        <img src="https://res.cloudinary.com/dt9pwfpi5/image/upload/v1593361911/dumbell_W_wtcqri.png" 
+                        class="card-img-top" alt="Cálculo IMC">
+                        <div class="card-body">
+                            <h5 class="card-title">Calcule seu IMC</h5>
+                            <a href="{% url 'calcular_imc' %}" class="btn btn-primary">Aqui</a>
+                        </div>
+                    </div>
+                </div>                     
             </div>
         </div>
 
