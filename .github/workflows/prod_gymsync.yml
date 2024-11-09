@@ -29,24 +29,36 @@ jobs:
       
       - name: Install dependencies
         run: |
-          source venv/bin/activate
           pip install -r requirements.txt
+          npm ci
+          cd ..
 
-      - name: Clean up testing files
+      - name: Run local server
         run: |
-          rm -f db.sqlite3 .env
+          python manage.py migrate
+          python manage.py runserver &
+          sleep 5
+          npx cypress run
 
+      - name: Cleaning testing files
+        run: |
+          rm db.sqlite3
+          rm .env
+          cd ..
+
+        
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./*
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: release.zip
-          retention-days: 1
+          path: |
+            release.zip
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,7 +67,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write # Required for requesting the JWT
+      id-token: write #This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
