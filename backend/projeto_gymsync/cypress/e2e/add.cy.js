@@ -21,9 +21,5 @@ describe('template spec', () => {
         cy.wait(1000)
         cy.get('#carga1').type(48)
         cy.get(':nth-child(1) > form > .btn').click()
-        
-  
       })
-  
-  
   })

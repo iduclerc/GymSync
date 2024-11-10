@@ -26,22 +26,19 @@
         </form>
 
         {% if imc %}
-            <div class="result">
-                <h3>Seu IMC é: {{ imc }}</h3>
-                <p>Classificação: {{ classificacao }}</p>
-            </div>
-
-            {% if treinos %}
-                <h4>Treinos Recomendados:</h4>
-                <ul>
-                    {% for treino in treinos %}
-                        <li>{{ treino.nome }} - {{ treino.agrupamento_muscular }}</li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>Nenhum treino recomendado encontrado.</p>
-            {% endif %}
+        <div class="result">
+            <h3>Seu IMC é: {{ imc }}</h3>
+            <p>Classificação: {{ classificacao }}</p>
+        </div>
+    
+        {% if treinos %}
+            <h4>Treino Recomendado:</h4>
+            <p>{{ treinos }}</p>
+        {% else %}
+            <p>Nenhum treino recomendado encontrado.</p>
         {% endif %}
-    </div>
+    {% endif %}
+    
+        </div>
 </body>
 </html>
