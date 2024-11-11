@@ -139,6 +139,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <!-- Entrega 4 -->
 <details id="entrega4">
     <summary>Entrega 4</summary>
+     <details>
+    <summary>DEPLOY E LINK</summary>
+    <p>DEPLOY: https://gymsync-dnfdgmgdhva3ckd7.brazilsouth-01.azurewebsites.net </p>
+    <p>screencast deploy:https://www.loom.com/share/e25be7173ee5427aa9a209d2cd0e53d7</p>    
+    </details>
     <details>
     <summary>Screencasts</summary>
     <p>Figma:  https://youtu.be/_QGQduqDFbs </p>
