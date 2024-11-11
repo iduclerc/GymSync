@@ -139,6 +139,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <!-- Entrega 4 -->
 <details id="entrega4">
     <summary>Entrega 4</summary>
+    <p>Screamcast Figma:  https://youtu.be/_QGQduqDFbs </p>
     <h3>Entrega 4...</h3>
 </details>
 
