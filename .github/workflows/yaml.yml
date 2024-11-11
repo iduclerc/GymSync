@@ -1,28 +1,31 @@
-name: CI/CD Pipeline
+name: Django CI
 
 on:
   push:
     branches:
-      - main  # Define que o workflow será executado quando houver push para a branch 'main'
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3  # Faz o checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install reportlab  # Instala o reportlab
 
-      - name: Run Tests
-        run: |
-          python manage.py test  # Executa os testes do Django
+      - name: Run tests
+        run: python manage.py test
