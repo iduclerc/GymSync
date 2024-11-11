@@ -145,9 +145,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <p>testes:  https://youtu.be/RIfta7CZO3A</p>
     <p>historias: https://www.loom.com/share/c610cbf8bf444351b42ba4789cb871e8</p>
      <summary>Backlog</summary>
-         <img src="">
-         <img src="">
-         <img src="">
+         <img src="img/imagem1.jpeg">
+         <img src="img/imagem2.jpeg">
+         <img src="img/imagem3.jpeg">
     </details>
 </details>
 
