@@ -24,10 +24,12 @@ class Treino(models.Model):
         return self.nome
     
 class Exercicios(models.Model):
+    
     treino = models.ForeignKey(Treino, related_name='exercicios', on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     repeticoes = models.IntegerField()
     carga = models.FloatField()
+    avaliacao = models.IntegerField(null=True, blank=True, choices=[(i, i) for i in range(1, 6)])
 
     def __str__(self):
         return f"{self.nome} - {self.repeticoes} reps"
@@ -71,5 +73,7 @@ class EditarTreino(models.Model):
 
     def __str__(self):
         return self.nome
+# models.py
+
 
     

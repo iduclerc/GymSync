@@ -1,5 +1,24 @@
 <!doctype html>
 <html lang="en">
+    <style>
+        .rating {
+            direction: rtl;
+            font-size: 1.5em;
+        }
+        
+        .rating input[type="radio"] {
+            display: none;
+        }
+        
+        .rating label {
+            color: #ddd;
+            cursor: pointer;
+        }
+        
+        .rating input[type="radio"]:checked ~ label {
+            color: #f5b301;
+        }
+    </style>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -70,6 +89,14 @@
                     <input type="number" id="carga1" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <!-- Avaliação do Exercício -->
+<div class="rating">
+    <p>Avaliação:</p>
+    {% for i in "12345" %}
+        <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+        <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+    {% endfor %}
+</div>
                 </form>
             </div>
 
@@ -94,6 +121,13 @@
                     <input type="number" id="carga2" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 
@@ -118,6 +152,13 @@
                     <input type="number" id="carga3" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 
@@ -142,6 +183,13 @@
                     <input type="number" id="carga4" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 
@@ -166,6 +214,13 @@
                     <input type="number" id="carga5" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 
@@ -190,6 +245,13 @@
                     <input type="number" id="carga6" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 
@@ -214,6 +276,13 @@
                     <input type="number" id="carga7" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 
@@ -238,6 +307,13 @@
                     <input type="number" id="carga8" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
              <!-- Exercício 9: Supino Inclinado -->
@@ -261,6 +337,13 @@
                     <input type="number" id="carga9" name="carga" class="form-control mb-2" required>
 
                     <button type="submit" class="btn btn-primary w-100">Adicionar Exercício</button>
+                    <div class="rating">
+                        <p>Avaliação:</p>
+                        {% for i in "12345" %}
+                            <input type="radio" id="star{{ i }}_1" name="rating" value="{{ i }}">
+                            <label for="star{{ i }}_1" title="{{ i }} estrelas">★</label>
+                        {% endfor %}
+                    </div>
                 </form>
             </div>
 

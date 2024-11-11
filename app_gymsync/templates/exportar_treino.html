@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar Treino</title>
+    <link rel="stylesheet" href="{% static 'app_gymsync/css/exportarTreino.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.0/dist/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <!-- Seção principal -->
+    <div class="container text-center">
+        <div class="highlighted-title">Exportar Treino para PDF</div>
+        <div class="card export-card text-center shadow-lg" data-tilt data-tilt-max="5" data-tilt-speed="400">
+            <div class="card-body">
+                <h5 class="card-title">Exportar Treino</h5>
+                <form action="{% url 'exportar_treino_pdf' %}" method="get" target="_blank" class="text-center">
+                    <label for="treino" class="form-label">Selecione o Treino:</label>
+                    <select name="treino_id" id="treino" class="form-control" required>
+                        {% for treino in treinos %}
+                            <option value="{{ treino.id }}">{{ treino.nome }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="btn btn-primary export-btn mt-3">Exportar para PDF</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Inicializando Vanilla Tilt para efeito de hover
+    VanillaTilt.init(document.querySelectorAll(".export-card"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2
+    });
+</script>
+</html>

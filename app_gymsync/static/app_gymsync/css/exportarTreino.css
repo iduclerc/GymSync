@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f25c54; /* Fundo da página */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Título destacado com fundo preto */
+.highlighted-title {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card de exportação aprimorado */
+.export-card {
+    background-color: white;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    max-width: 400px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.export-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilos para o formulário */
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.export-btn {
+    background-color: #ff6934;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.export-btn:hover {
+    background-color: #e04a28;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(224, 74, 40, 0.4);
+}
