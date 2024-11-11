@@ -132,19 +132,110 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
         <p>https://www.loom.com/share/aa729f6a4076462da05b9b17d7fb3fb7?sid=90507ffa-deb0-4c88-86b6-731a0b92577d</p>
         <summary>Link deploy</summary>
          <p>https://gymsync-dnfdgmgdhva3ckd7.scm.brazilsouth-01.azurewebsites.net/webssh/host</p>
-    
+    </details>
         <p></p>
 </details>
 
 <!-- Entrega 4 -->
 <details id="entrega4">
     <summary>Entrega 4</summary>
-    <h3>Entrega 4...</h3>
+    <details>
+    <summary>Screencasts</summary>
+    <p>Figma:  https://youtu.be/_QGQduqDFbs </p>
+    <p>testes:  https://youtu.be/RIfta7CZO3A</p>
+    </details>
 </details>
 
 <br><br>
 
-<h1>🔧 Em construção... 🔧</h1>
+<h1 align="center">Contribuindo para o Projeto GymSync 🤝</h1>
+
+<p align="center">
+    Bem-vindo ao projeto GymSync! Ficamos felizes em contar com o seu interesse para contribuir.<br>
+    Siga as instruções abaixo para configurar o ambiente de desenvolvimento e começar.
+</p>
+
+<h2>Pré-requisitos</h2>
+
+<p>Antes de começar, certifique-se de que possui as ferramentas necessárias:</p>
+<ul>
+    <li><a href="https://www.python.org/downloads/">Python</a></li>
+    <li><a href="https://git-scm.com/downloads">Git</a></li>
+    <li><a href="https://code.visualstudio.com/download">VSCode</a></li>
+</ul>
+
+<h2>Configuração do Ambiente de Desenvolvimento</h2>
+
+<h3>1. Clone o Repositório</h3>
+<p>Abra o terminal e navegue até o diretório onde deseja clonar o repositório. Em seguida, execute:</p>
+
+<pre><code>git clone https://github.com/iduclerc/GymSync.git</code></pre>
+
+<h3>2. Acesse o Diretório do Projeto</h3>
+<p>Entre na pasta do projeto com:</p>
+
+<pre><code>cd GymSync</code></pre>
+
+<h3>3. Crie e Ative um Ambiente Virtual</h3>
+<p>Crie o ambiente virtual com o comando:</p>
+
+<pre><code>python -m venv venv</code></pre>
+
+<p>Ative o ambiente virtual:</p>
+<ul>
+    <li><b>Windows</b>: <code>venv\Scripts\activate</code></li>
+    <li><b>macOS/Linux</b>: <code>source venv/bin/activate</code></li>
+</ul>
+
+<h3>4. Instale as Dependências</h3>
+<p>Com o ambiente virtual ativo, instale as dependências do projeto:</p>
+
+<pre><code>pip install -r requirements.txt</code></pre>
+
+<h3>5. Execute as Migrações</h3>
+<p>Prepare o banco de dados com as migrações:</p>
+
+<pre><code>python manage.py migrate</code></pre>
+
+<p><em>Obs.: Em alguns dispositivos, use <code>py</code> em vez de <code>python</code>.</em></p>
+
+<h3>6. Inicie o Servidor de Desenvolvimento</h3>
+<p>Para iniciar o servidor, execute:</p>
+
+<pre><code>python manage.py runserver</code></pre>
+
+<p>O aplicativo estará disponível em seu navegador, geralmente em <code>http://localhost:8000/</code>.</p>
+
+<h2>Contribuindo com Código</h2>
+
+<p>Recomendamos o uso do Visual Studio Code (VSCode) para desenvolvimento. Para abrir o projeto no VSCode:</p>
+<ol>
+    <li>Abra o VSCode.</li>
+    <li>Selecione <b>File > Open Folder...</b> e escolha o diretório do projeto GymSync.</li>
+    <li>Certifique-se de que o ambiente virtual esteja ativado no terminal do VSCode.</li>
+</ol>
+
+<h2>Criando um Pull Request</h2>
+<p>Após fazer suas alterações e confirmá-las com <code>git commit</code>, abra um Pull Request (PR) em nosso repositório no GitHub.</p>
+
+<h3>Processo de Revisão</h3>
+<p>Nossa equipe revisará todos os PRs e aprovará aqueles que estiverem em conformidade com os objetivos do projeto e as boas práticas de desenvolvimento.</p>
+
+<h2>Diretrizes de Desenvolvimento 🤔</h2>
+
+<ul>
+    <li>Siga as boas práticas de codificação para Python, HTML e CSS.</li>
+    <li>Mantenha a formatação do código consistente.</li>
+    <li>Organize as importações conforme recomendado no PEP 8.</li>
+</ul>
+
+<h2>Dúvidas?</h2>
+<p>Se tiver alguma dúvida, sinta-se à vontade para abrir uma <a href="https://github.com/iduclerc/GymSync/issues">issue</a>.</p>
+
+<hr>
+
+<p align="center"><strong>Obrigado por ajudar a tornar o GymSync melhor!</strong></p>
+
 
 </body>
 </html>
