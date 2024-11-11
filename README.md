@@ -132,7 +132,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
         <p>https://www.loom.com/share/aa729f6a4076462da05b9b17d7fb3fb7?sid=90507ffa-deb0-4c88-86b6-731a0b92577d</p>
         <summary>Link deploy</summary>
          <p>https://gymsync-dnfdgmgdhva3ckd7.scm.brazilsouth-01.azurewebsites.net/webssh/host</p>
-    
+    </details>
         <p></p>
 </details>
 
