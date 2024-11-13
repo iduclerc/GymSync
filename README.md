@@ -147,7 +147,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <details>
     <summary>Screencasts</summary>
     <p>Figma:  https://youtu.be/_QGQduqDFbs </p>
-    <p>testes:  https://youtu.be/RIfta7CZO3A</p>
+    <p>testes historias novas:  https://youtu.be/RIfta7CZO3A</p>
+    <p>Testes todas historias passadas: https://youtu.be/SU8br8UstdM</p>
     <p>historias: https://www.loom.com/share/c610cbf8bf444351b42ba4789cb871e8</p>
      <summary>Backlog</summary>
          <img src="img/imagem1.jpeg">
